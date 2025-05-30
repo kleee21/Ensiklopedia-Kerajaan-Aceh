@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceh Legacy Chronicles - Galeri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            background-image: url(Image/1.webp); 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-size: cover;
+        }
+        /* Aktifkan tautan navigasi yang benar untuk halaman ini */
+        .nav-link[href="galeri.html"] {
+            @apply text-blue-600 font-semibold;
+        }
+        /* Gaya untuk gambar galeri */
+        .gallery-item {
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+      <div id="upperContainer" class="absolute inset-0 w-full min-h-full bg-transparent -z-10 overflow-hidden">
+    <img src="Image/2.webp" alt="" id="batik_kiri" class="absolute h-full left-0 z-10" data-aos="zoom-in" loading="lazy">
+    <img src="Image/3.webp" alt="" id="batik_kanan" class="absolute h-full right-0 z-10" data-aos="zoom-in" loading="lazy">
+    <img src="Image/4.webp" alt="" id="bunga_kiri_atas" class="absolute top-0 left-0 max-w-70 max-h-70" data-aos="zoom-in" loading="lazy">
+    <img src="Image/5.webp" alt="" id="bunga_kiri_bawah" class="absolute bottom-0 left-0 max-h-70" data-aos="zoom-in" loading="lazy">
+    <img src="Image/6.webp" alt="" id="bunga_kanan_atas" class="absolute top-0 right-0 max-w-70 max-h-70" data-aos="zoom-in" loading="lazy">
+    <img src="Image/7.png" alt="" id="bunga_kanan_bawah" class="absolute bottom-0 right-0 max-w-70 max-h-70" data-aos="zoom-in" loading="lazy">
+    </div>
+
+    <header class="bg-transparent shadow-md py-4 px-6 md:px-10 sticky top-0 z-50 rounded-b-lg transition-all duration-300 ease-in-out">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-gray-900 hover:text-blue-700 transition duration-300 rounded-md p-2">
+                Aceh Legacy Chronicles
+            </a>
+
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <ul id="main-nav" class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
+                <li><a href="sejarah.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sejarah</a></li>
+                <li><a href="galeri.html" class="nav-link active text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Profil</a></li>
+                <li><a href="sumber.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sumber</a></li>
+            </ul>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg mt-2 rounded-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="index.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
+                <li><a href="sejarah.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sejarah</a></li>
+                <li><a href="galeri.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Profil</a></li>
+                <li><a href="sumber.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sumber</a></li>
+            </ul>
+        </div>
+
+
+    </header>
+
+    <main class="container mx-auto mt-8 px-4 md:px-0">
+        <section id="galeri-content" class="mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Galeri Foto Aceh</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Jelajahi keindahan dan kekayaan budaya Aceh melalui koleksi foto kami yang menawan, menampilkan lanskap, arsitektur, tradisi, dan wajah-wajah rakyat Aceh.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="Image/Baiturrahman_1303539688.jpg" alt="Masjid Raya Baiturrahman" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Masjid Raya Baiturrahman</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Merupakan simbol kebanggaan masyarakat Aceh sekaligus ikon utama Kota Banda Aceh. Masjid ini tidak hanya dikenal sebagai salah satu masjid terbesar di Indonesia, tetapi juga sebagai simbol peradaban Islam yang kuat di wilayah ujung barat Nusantara. Sejarah pembangunan awalnya dikaitkan dengan Sultan Alaidin Mahmudsyah I yang memerintah pada abad ke-13 (1267–1309 M), dengan nama awal Baiturrahman Masjid. Namun, pembangunan kembali secara signifikan dilakukan pada masa kejayaan Kesultanan Aceh di bawah pemerintahan Sultan Iskandar Muda (1607–1636 M), yang memperluas dan memperkuat fungsinya sebagai pusat keislaman dan politik.
+                                Arsitektur Masjid Raya Baiturrahman sangat khas, mengadopsi gaya Mughal dengan ciri kubah besar berwarna hitam, menara tinggi, serta ukiran dan ornamen yang rumit. Gaya arsitektur ini mencerminkan kuatnya pengaruh budaya dan seni Islam dari wilayah India, menandakan adanya hubungan intelektual dan perdagangan yang luas antara Aceh dan pusat-pusat peradaban Islam lainnya. Bukti peninggalan yang dapat ditemukan hingga kini meliputi prasasti batu yang mencatat tahun pembangunan, bentuk fisik bangunan dengan detail arsitektural yang otentik, serta sejumlah naskah kuno yang menceritakan sejarah serta fungsi religius dan sosial masjid ini.
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Masjid Raya Baiturrahman tidak hanya berfungsi sebagai tempat ibadah umat Muslim, tetapi juga memainkan peran sebagai pusat pendidikan agama, tempat pertemuan ulama, bahkan sebagai basis perjuangan rakyat Aceh dalam menghadapi kolonialisme Belanda. Masjid ini menjadi benteng simbolik sekaligus nyata dalam mempertahankan identitas dan kehormatan umat Islam Aceh. Keberagaman material yang digunakan dalam pembangunannya juga mencerminkan kemakmuran Kesultanan Aceh serta luasnya jaringan perdagangan yang dimiliki: marmer didatangkan dari Tiongkok, besi jendela dari Belgia, kayu dari Myanmar, dan tiang penyangga dari Surabaya.
+                                </p>
+                                <p>
+                                    Keberadaan masjid monumental ini menunjukkan bahwa Islam di Aceh tidak hanya hadir sebagai ajaran spiritual, tetapi juga sebagai kekuatan sosial-politik yang menyatukan rakyat, memperkuat identitas budaya, serta membentuk sistem pemerintahan yang berbasis pada nilai-nilai keislaman. Masjid ini menjadi fondasi dari kehidupan bernegara dan bermasyarakat di Aceh, sekaligus warisan peradaban Islam yang tak ternilai.
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="Image/benteng.webp" alt="Rumah Adat Aceh" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Benteng Indra Patra</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Benteng Indra Patra terletak di pesisir Ulee Lheue, Banda Aceh, dan merupakan salah satu peninggalan sejarah penting yang mencerminkan kekuatan militer masa lampau di wilayah Aceh. Benteng ini dibangun sebagai bagian dari sistem pertahanan Kesultanan Aceh pada masa pemerintahan Sultan Iskandar Muda (1601–1636 M), dengan tujuan utama untuk menghadapi dan menahan serangan dari bangsa Portugis yang pada saat itu aktif melakukan ekspansi kolonial di kawasan Asia Tenggara. Kesultanan Aceh menyadari pentingnya pertahanan wilayah pesisir sebagai garis depan melawan kekuatan asing yang mengancam kedaulatan dan stabilitas kerajaan.
+                                Namun, berdasarkan berbagai temuan arkeologis dan kajian sejarah, diketahui bahwa asal usul Benteng Indra Patra ternyata jauh lebih tua. Struktur awal dari benteng ini diduga telah dibangun sejak masa Kerajaan Lamuri, kerajaan Hindu tertua di Aceh yang berdiri sekitar abad ke-7 Masehi. Ini menunjukkan bahwa benteng tersebut memiliki akar sejarah yang panjang dan telah mengalami berbagai fase pembangunan dan penguatan, seiring dengan bergantinya kekuasaan dari era Hindu-Buddha menuju era Islam.
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Salah satu bukti konkret dari warisan tersebut adalah struktur bangunan benteng yang masih kokoh hingga kini, terbuat dari batu kapur yang kuat dan tahan terhadap cuaca. Di dalam kompleks benteng, masih dapat ditemukan meriam-meriam kuno peninggalan masa lalu serta terowongan bawah tanah yang diduga menghubungkan benteng dengan laut. Terowongan ini kemungkinan besar digunakan untuk mobilisasi pasukan secara tersembunyi atau sebagai jalur evakuasi dalam keadaan darurat.
+                                </p>
+                                <p>
+                                    Keberadaan dan kontinuitas penggunaan benteng ini membuktikan bahwa Aceh telah memiliki sistem militer yang terorganisir dan kemampuan strategis dalam merespons ancaman eksternal. Selain itu, transisi dari penggunaan benteng oleh kerajaan Hindu ke kesultanan Islam menunjukkan adanya pendekatan yang pragmatis dan adaptif terhadap infrastruktur warisan masa lalu. Kesultanan Aceh tidak serta-merta menghapus simbol-simbol masa pra-Islam, melainkan mengintegrasikannya ke dalam sistem pertahanannya. Hal ini mencerminkan proses pembangunan negara yang tidak hanya ideologis, tetapi juga fungsional, memperlihatkan kecanggihan berpikir dan kematangan politik dari para penguasa Aceh dalam memanfaatkan kekuatan sejarah sebagai bagian dari identitas dan kekuatan pertahanan wilayah mereka.
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="Image/taman.jpeg" alt="Tari Saman" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Taman Sari Gunongan</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Taman Sari Gunongan, yang juga dikenal dengan nama Taman Ghairah atau Taman Kegairahan, merupakan salah satu warisan budaya yang sangat penting dari masa kejayaan Kesultanan Aceh Darussalam. Terletak di dalam kompleks Istana Kesultanan, taman ini dibangun pada masa pemerintahan Sultan Iskandar Muda (1601–1636 M), salah satu sultan terbesar dalam sejarah Aceh. Fungsinya adalah sebagai tempat peristirahatan dan hiburan bagi keluarga kerajaan, mencerminkan kehidupan istana yang tidak hanya berpusat pada kekuasaan dan militer, tetapi juga pada kenyamanan, estetika, dan kebudayaan.
+                                Pembangunan taman ini memiliki makna yang mendalam, terutama karena didedikasikan secara khusus kepada permaisuri Sultan Iskandar Muda, yaitu Putroe Phang, seorang putri dari Kerajaan Pahang. Ia dikisahkan sangat merindukan pegunungan di tanah kelahirannya. Sebagai bentuk cinta dan penghormatan, Sultan membangun taman yang indah dengan struktur Gunongan yang menyerupai gunung. Struktur ini menjadi elemen khas dalam arsitektur taman Indonesia, meskipun ada pula pendapat yang menyatakan bahwa desainnya menunjukkan pengaruh taman-taman Islam Persia, memperlihatkan adanya interaksi budaya yang luas.
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Sisa-sisa taman ini, termasuk bangunan Gunongan, kolam-kolam air, dan pepohonan rindang yang masih berdiri hingga kini, menjadi saksi bisu kemegahan arsitektur serta cara hidup kalangan bangsawan Aceh di masa lalu. Situs ini telah diakui sebagai Bangunan Cagar Budaya, menegaskan nilai historis dan estetikanya yang tinggi.
+                                </p>
+                                <p>
+                                    Taman ini juga menjadi simbol penting dalam diplomasi budaya. Perkawinan antara Sultan Iskandar Muda dan Putroe Phang menggambarkan hubungan diplomatik antara Aceh dan kerajaan-kerajaan Melayu lainnya. Pembangunan taman sebagai bentuk penghormatan terhadap permaisuri asing menunjukkan upaya untuk mengintegrasikan kebudayaan luar ke dalam lingkungan istana. Ini mencerminkan penggunaan “kekuatan lunak” oleh Kesultanan Aceh, yang tidak hanya mengandalkan kekuatan militer dan ekonomi, tetapi juga memperluas pengaruhnya melalui seni, arsitektur, dan diplomasi budaya. Keberadaan Taman Sari Gunongan membuktikan bahwa Kesultanan Aceh adalah kerajaan yang memiliki peradaban tinggi, di mana estetika dan kehidupan spiritual mendapat tempat yang penting dalam kehidupan istana. 
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="Image/koin.jpg" alt="Kuliner Aceh" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Uang Emas (Dirham) Kerajaan Aceh</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Kesultanan Aceh Darussalam pernah menunjukkan kejayaannya melalui pencetakan dan penggunaan mata uang sendiri, yaitu dirham emas. Mata uang ini tidak hanya berfungsi sebagai alat pembayaran resmi di wilayah kekuasaan Aceh, tetapi juga menjadi simbol kemakmuran, kekuatan ekonomi, serta kemandirian politik dan administratif kerajaan. Dirham emas Aceh menjadi bukti nyata bahwa kerajaan ini memiliki kemampuan untuk mengelola sumber daya alamnya, khususnya emas, dan menjadikannya sebagai bagian penting dari sistem keuangan dan perdagangan.
+                                Bukti fisik dari eksistensi mata uang ini dapat ditemukan di berbagai museum, terutama di wilayah Sumatera. Misalnya, Museum Uang Sumatera di Medan menyimpan koleksi koin emas dari masa pemerintahan Sultan Salahuddin Syah Malik Az-Zahir (1530–1537) dan Sultanah Zaqiatuddin Inayat Syah (1678–1688), yang menunjukkan bahwa penggunaan uang emas telah berlangsung lama dan terus berlanjut sepanjang beberapa generasi kepemimpinan. Inskripsi pada koin-koin tersebut umumnya memuat nama penguasa dan sering disertai dengan frasa Arab seperti *"Dhuriba fi"* (yang berarti "dicetak di"), menunjukkan lokasi pencetakan, meskipun pada beberapa koin, tulisan tersebut tidak dapat dibaca secara jelas karena faktor usia atau kerusakan.
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Keberadaan dirham emas tidak hanya menunjukkan kemakmuran Aceh, tetapi juga peran aktifnya dalam jaringan perdagangan regional dan internasional. Emas merupakan alat tukar universal yang diakui di berbagai belahan dunia, sehingga pencetakan uang emas memperkuat posisi Aceh sebagai pemain utama dalam jalur perdagangan maritim, terutama di Selat Malaka yang strategis. Dirham emas juga menjadi bukti bahwa Aceh memiliki sistem administrasi dan teknologi yang cukup maju untuk memproduksi mata uang sendiri, serta mengelola perangkat keras militer dan sistem keuangan secara mandiri.
+                                </p>
+                                <p>
+                                    Kemampuan ini menunjukkan bahwa Aceh bukan hanya kerajaan yang kaya sumber daya, tetapi juga memiliki visi strategis yang memungkinkan proyeksi kekuasaan dalam skala luas, baik secara ekonomi maupun militer. Dengan demikian, pencetakan dan penggunaan dirham emas memperkuat klaim bahwa Aceh merupakan salah satu kekuatan terbesar dan negara terkaya di kawasan Asia Tenggara pada masanya. Kemandirian dalam mencetak uang adalah salah satu pilar penting yang mendukung status tersebut.
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="Image/meriam.jpg" alt="Pantai Lampuk" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Meriam Kesultanan Aceh</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Kesultanan Aceh Darussalam merupakan salah satu kerajaan Islam terbesar dan paling berpengaruh di Asia Tenggara pada abad ke-16 hingga abad ke-17. Sebagai kerajaan yang memiliki kekuatan militer tangguh, Aceh dikenal luas karena kemampuan tempurnya yang luar biasa, terutama melalui penggunaan meriam dalam strategi pertahanannya. Meriam-meriam ini menjadi simbol kekuatan dan teknologi militer Aceh yang tidak hanya disegani oleh kerajaan-kerajaan di Nusantara, tetapi juga oleh kekuatan kolonial Eropa yang mulai menjajah wilayah Asia Tenggara.
+                                Meriam-meriam peninggalan Kesultanan Aceh kini masih dapat ditemukan di berbagai museum di Aceh, menjadi saksi bisu dari kejayaan masa lampau. Salah satu yang paling terkenal adalah Meriam Lada Sicupak, sebuah meriam berukuran besar yang tidak hanya menunjukkan kehebatan teknik persenjataan Aceh, tetapi juga merefleksikan hubungan erat antara Kesultanan Aceh dengan Kesultanan Turki Usmani (Ottoman).
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Turki Usmani memainkan peran penting dalam pengembangan militer Aceh, terutama dalam bidang teknologi persenjataan. Mereka tidak hanya mengirimkan bantuan berupa meriam, tetapi juga mengirimkan ahli senjata untuk melatih para teknisi Aceh dalam membuat dan mengoperasikan meriam. Proses transfer teknologi ini menunjukkan bahwa Aceh bukan hanya sekadar penerima bantuan, tetapi juga mampu mengadaptasi dan mengembangkan teknologi tersebut secara mandiri. Hasilnya, Aceh berhasil memproduksi banyak meriam sendiri, sebuah pencapaian luar biasa yang menandakan tingkat kemandirian dan kecanggihan dalam bidang militer.
+                                </p>
+                                <p>
+                                    Lebih dari sekadar alat perang, meriam-meriam ini juga menjadi simbol diplomasi. Hubungan erat dengan Turki Usmani mencerminkan jaringan diplomasi internasional yang luas dan berpengaruh. Aceh diakui sebagai mitra strategis oleh salah satu kekuatan dunia pada masa itu, yang memperlihatkan betapa pentingnya peran Aceh dalam geopolitik global.
+                                </p>
+                                <p>
+                                    Dengan kemampuannya memproduksi senjata berat sendiri dan menjalin aliansi dengan kekuatan dunia seperti Turki Usmani, Kesultanan Aceh memperlihatkan bahwa kekuatan militer yang tangguh harus ditopang oleh kemandirian teknologi dan strategi diplomasi yang cerdas. Meriam bukan hanya simbol kekuatan fisik, tetapi juga representasi dari kejayaan ilmu pengetahuan, kerja sama internasional, dan semangat kemandirian sebuah bangsa.
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="Image/Siwah aceh.png" alt="Kopi Gayo" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Senjata Tradisional (Rencong, Peudeung, Siwah)</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Senjata tradisional Aceh seperti rencong, peudeung, dan siwah bukan sekadar alat pertahanan diri, tetapi merupakan simbol identitas budaya, keberanian, dan status sosial masyarakat Aceh dari masa ke masa. Di antara ketiganya, rencong merupakan senjata yang paling dikenal luas dan dianggap sebagai pusaka kebanggaan masyarakat Aceh. Rencong tidak hanya digunakan sebagai senjata fisik, tetapi juga memiliki makna simbolis yang mendalam. Bentuknya yang khas melengkung menyerupai huruf Arab dari lafadz "bismillah" mencerminkan kuatnya pengaruh Islam dalam budaya Aceh, yang telah hadir sejak berdirinya Kesultanan Aceh pada abad ke-13.
+                                Terdapat berbagai jenis rencong yang masing-masing memiliki fungsi, bentuk, dan nilai estetikanya tersendiri. Beberapa di antaranya adalah Rencong Meucugek, Rencong Pudoi, Rencong Meupucok (dengan ukiran dari gading atau emas), Rencong Hulu Puntong, dan Rencong Meukure. Keragaman ini menunjukkan adanya perkembangan teknik pembuatan senjata dan diferensiasi sosial dalam penggunaannya. Masyarakat umum biasanya menggunakan rencong biasa, sedangkan golongan bangsawan atau pemimpin adat memiliki rencong dengan ornamen mewah.
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Selain rencong, senjata lain seperti peudeung (semacam pedang panjang) dan siwah juga memiliki tempat penting dalam budaya Aceh. Siwah, meski secara fisik mirip dengan rencong, biasanya lebih mewah karena dihiasi dengan emas, permata, dan ukiran rumit. Karena kemewahannya, siwah umumnya dimiliki oleh raja atau kalangan istana sebagai simbol kekuasaan dan status tinggi. Sementara itu, peudeung sering dikaitkan dengan pertempuran skala besar dan memiliki nilai strategis dalam medan perang.
+                                </p>
+                                <p>
+                                    Keberadaan berbagai jenis senjata ini mencerminkan tingginya keterampilan masyarakat Aceh dalam bidang metalurgi dan seni ukir, serta menunjukkan bahwa senjata tidak hanya dilihat dari sisi fungsi tempurnya saja, tetapi juga sebagai bagian dari sistem nilai dan budaya. Ornamen, bahan pembuat, dan hak kepemilikan senjata turut menjadi indikator stratifikasi sosial dalam masyarakat Aceh pada masa lalu. Dengan demikian, senjata tradisional Aceh bukan hanya benda bersejarah, tetapi juga saksi hidup peradaban, keberanian, serta identitas religius dan sosial masyarakat Aceh yang patut dilestarikan hingga kini.
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="700">
+                    <img src="Image/pinto.jpg" alt="Kapal Apung PLTD Apung" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Perhiasan (Pinto Aceh)</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Pinto Aceh, atau yang juga dikenal sebagai Pinto Khop, adalah salah satu motif khas dari Aceh yang sarat dengan nilai seni dan sejarah. Motif ini bukan hanya terkenal di wilayah Aceh saja, tetapi telah dikenal luas di seluruh Indonesia bahkan hingga mancanegara. Inspirasi dari motif ini berasal dari sebuah gerbang bersejarah yang terletak di kompleks Taman Sari Keraton, peninggalan masa kejayaan Sultan Iskandar Muda. Gerbang tersebut dibangun secara khusus sebagai pintu masuk ke taman pribadi sang permaisuri, mencerminkan kehalusan rasa dan perhatian terhadap seni arsitektur pada masa itu. Keindahan desainnya yang simetris dan penuh ornamen halus membuatnya dijadikan inspirasi dalam berbagai bentuk karya seni, termasuk perhiasan.
+                                Motif Pinto Aceh berkembang pesat dan digunakan dalam pembuatan berbagai jenis perhiasan tradisional, seperti kalung, gelang, subang (anting-anting), serta bros. Tak hanya berhenti pada perhiasan pribadi, motif ini juga diaplikasikan ke dalam unsur-unsur dekoratif bangunan, seperti pagar rumah, teralis jendela, hiasan dinding, hingga tugu-tugu kota. Penyebaran motif ini bahkan mencapai negara-negara tetangga seperti Malaysia, Singapura, dan Brunei Darussalam, menunjukkan betapa kuatnya pengaruh budaya Aceh di kawasan Asia Tenggara.
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Selain Pinto Aceh, Aceh memiliki berbagai jenis perhiasan tradisional lainnya yang tidak kalah memukau, seperti boh dokma (perhiasan berbentuk bulat menyerupai buah), bieng meuh (anting dengan motif bunga), talo gulee (gelang khas Aceh), dan manek krawang (hiasan berbahan manik-manik). Semua perhiasan ini dibuat dengan teknik tradisional yang diwariskan secara turun-temurun, mencerminkan tingginya keterampilan pengrajin lokal dalam bidang seni dan kerajinan tangan.
+                                </p>
+                                <p>
+                                    Keberadaan dan popularitas perhiasan bermotif Pinto Aceh menjadi bukti nyata bahwa Kesultanan Aceh di masa lalu tidak hanya unggul dalam kekuatan militer dan politik, tetapi juga dalam bidang seni dan budaya. Melalui perhiasan ini, masyarakat Aceh tidak hanya mempertahankan warisan budaya leluhur, tetapi juga mempromosikan kekayaan seni daerah kepada dunia. Dengan demikian, Pinto Aceh bukan sekadar motif hias, tetapi simbol kejayaan, cinta, dan keindahan budaya Aceh yang abadi.
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="800">
+                    <img src="Image/kitab.webp" alt="Kerajinan Aceh" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Kitab Bustanussalatin</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Kitab Bustanussalatin, atau yang juga dikenal sebagai Bustan al-Salatin atau “Taman Para Raja”, merupakan salah satu karya sastra sejarah yang paling berpengaruh dari Kesultanan Aceh. Karya besar ini ditulis oleh ulama dan sejarawan terkenal Aceh, yakni Nuruddin ar-Raniri, pada abad ke-17, lebih tepatnya pada masa pemerintahan Sultan Iskandar Tsani. 
+                                Kitab ini mencerminkan puncak kejayaan intelektual dan spiritual Kesultanan Aceh, sekaligus menjadi saksi atas kekayaan budaya dan pemikiran Islam di wilayah Nusantara pada masa itu. Isi dari Bustanussalatin sangatlah luas dan beragam. Mencakup mulai dari sejarah dunia, kisah para nabi dari Nabi Adam hingga Nabi Muhammad. Cerita tentang raja-raja besar dari berbagai peradaban seperti Parsi, Byzantium, Mesir, dan Arab, hingga pembahasan tentang raja yang adil dan zalim, serta para wali. 
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Kitab ini juga menyentuh berbagai aspek ilmu pengetahuan seperti akal, firasat, ilmu pengobatan, sifat perempuan, serta fenomena langit dan bumi. Dengan demikian, kitab ini tidak hanya memiliki fungsi sebagai catatan sejarah, tetapi juga sebagai ensiklopedia ilmu pengetahuan dan ajaran moral. Keberadaan kitab ini menandakan kuatnya tradisi historiografi dan intelektual di Aceh. Bustanussalatin bukan hanya hasil dokumentasi semata, melainkan juga merupakan wujud dari kesadaran sejarah dan semangat intelektual yang tinggi. 
+                                </p>
+                                <p>
+                                    Kitab ini menyusun narasi sejarah Aceh dengan cara yang sistematis dan otoritatif, serta memperlihatkan bagaimana para penguasa Aceh ingin memposisikan kerajaan mereka sebagai bagian penting dari dunia Islam yang lebih luas. Selain itu, kitab ini juga menjadi alat legitimasi kekuasaan, yang memperkuat kedudukan sultan dengan menyandarkannya pada mandat ilahi. Dengan menampilkan Aceh sebagai kerajaan Islam yang agung, beradab, dan dipandu oleh nilai-nilai keagamaan, Bustanussalatin juga turut membentuk identitas kolektif masyarakat Aceh. Karya ini mencerminkan bahwa Aceh pada masa itu bukan hanya berperan sebagai pusat kekuasaan, tetapi juga sebagai pusat keilmuan dan peradaban Islam yang terbuka terhadap pengaruh global, serta aktif dalam peredaran ide dan ilmu.
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="800">
+                    <img src="Image/neusu.webp" alt="Kerajinan Aceh" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Prasasti Neusu</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Prasasti Neusu yang kini tersimpan sebagai salah satu koleksi penting di Museum Negeri Aceh sejak tahun 1990, merupakan salah satu bukti arkeologis keberadaan komunitas bangsa Tamil di wilayah Aceh pada masa lalu. Meskipun isi teks prasasti ini belum sepenuhnya dapat dibaca dengan jelas karena faktor keausan dan usia batu, keberadaannya menjadi petunjuk kuat tentang adanya interaksi budaya yang signifikan antara penduduk lokal dengan komunitas dari Asia Selatan, khususnya dari kawasan India bagian selatan. Ini menunjukkan bahwa Aceh sudah sejak lama menjadi kawasan yang terbuka terhadap pengaruh luar, terutama melalui jalur perdagangan maritim. 
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Kehadiran bangsa Tamil di Aceh sebagaimana tercermin dalam Prasasti Neusu menandakan pentingnya wilayah ini dalam jaringan perdagangan internasional, terutama di sepanjang jalur pelayaran Samudra Hindia. Bangsa Tamil, yang dikenal sebagai pelaut dan pedagang ulung, kemungkinan besar terlibat dalam pertukaran barang, budaya, maupun ideologi dengan masyarakat lokal. Interaksi ini memperkuat peran Aceh sebagai pelabuhan penting yang tidak hanya berfungsi sebagai titik perdagangan, tetapi juga sebagai ruang pertemuan antarbudaya. Komunitas-komunitas asing yang menetap atau berdagang di Aceh turut membentuk struktur sosial yang majemuk dan beragam, menandai Aceh sebagai pusat kosmopolitan yang dinamis sejak masa lampau. 
+                                </p>
+                                <p>
+                                    Selain Prasasti Neusu, Aceh juga memiliki prasasti penting lainnya, seperti yang terdapat di kompleks Masjid Raya Baiturrahman. Prasasti batu ini memuat informasi mengenai tahun pembangunan masjid dan menjadi sumber historis yang berharga dalam menelusuri perkembangan arsitektur dan patronase kerajaan di masa silam. Prasasti ini tidak hanya berfungsi sebagai penanda waktu, tetapi juga memperkuat legitimasi kekuasaan dan otoritas kerajaan dalam membangun infrastruktur keagamaan yang megah. 
+                                </p>
+                                <p>
+                                    Secara keseluruhan, Prasasti Neusu dan prasasti lainnya di Aceh memperlihatkan bahwa sejarah kawasan ini tidak hanya terbatas pada narasi keislaman semata, tetapi juga mencakup jejak-jejak interaksi multikultural dan perdagangan global. Aceh bukanlah wilayah yang tertutup, melainkan sebuah titik temu berbagai peradaban yang membentuk identitasnya sebagai kawasan yang kaya akan keberagaman etnis, budaya, dan agama. Bukti-bukti arkeologis seperti prasasti ini menjadi penting dalam merekonstruksi sejarah Aceh secara lebih utuh dan inklusif, serta menunjukkan peran pentingnya dalam jaringan dunia pada masa lalu. 
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item bg-white rounded-xl shadow-lg overflow-hidden" data-aos="zoom-in" data-aos-delay="800">
+                    <img src="Image/makam.jpg" alt="Kerajinan Aceh" class="w-full h-48 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-sm font-semibold text-gray-900">Makam Sultan Iskandar Muda dan Kompleks Makam Raja-Raja</p>
+                        <div class="expandable-text text-xs text-gray-600">
+                            <p>
+                                Makam Sultan Iskandar Muda, salah satu sultan terbesar dan paling berpengaruh dalam sejarah Kesultanan Aceh Darussalam, terletak di kompleks Masjid Raya Baiturrahman, Banda Aceh. Sosok Sultan Iskandar Muda dikenal sebagai pemimpin yang membawa kejayaan besar bagi Aceh pada abad ke-17, baik dari segi militer, ekonomi, maupun kebudayaan. Namun, makamnya sempat mengalami masa hilang akibat penghancuran yang dilakukan oleh pemerintah kolonial Hindia Belanda. Keberadaannya baru berhasil ditemukan kembali berkat informasi lisan yang diberikan oleh Pocut Meurah, istri dari Sultan Mahmud Syah. Temuan ini bukan hanya penting secara historis, tetapi juga menunjukkan nilai penting memori kolektif dalam pelestarian sejarah.
+                            </p>
+                            <div class="more-content hidden">
+                                <p>
+                                    Selain makam Sultan Iskandar Muda, terdapat pula kompleks makam para Raja Aceh lainnya yang tersebar di beberapa lokasi, salah satunya adalah Gampong Pande. Kompleks ini menyimpan sejumlah makam penguasa dan bangsawan Aceh terdahulu yang memiliki inskripsi pada nisannya. Inskripsi tersebut biasanya ditulis dalam huruf Arab, dengan berbagai gaya kaligrafi seperti naskhi, tsulust, dan kufi. Tulisan-tulisan ini sering kali memuat informasi seperti nama tokoh yang dimakamkan, gelar kebangsawanan, tahun wafat, serta syair-syair keagamaan dan penggalan ayat-ayat suci Al-Qur’an. Dengan demikian, makam-makam ini bukan hanya situs pemakaman, melainkan juga sumber sejarah tekstual dan visual yang sangat penting. 
+                                </p>
+                                <p>
+                                    Keberadaan inskripsi pada nisan memiliki nilai historis dan budaya yang tinggi. Selain berfungsi sebagai identifikasi individu, inskripsi tersebut mencerminkan tingkat perkembangan seni kaligrafi Islam di wilayah Aceh serta praktik keagamaan masyarakat saat itu. Ayat-ayat Al-Qur’an yang terukir pada batu nisan menunjukkan integrasi yang erat antara kepercayaan Islam dan sistem memorialisasi lokal. Ini sekaligus mengungkapkan sistem penulisan dan dokumentasi yang telah maju, jauh sebelum era modern.
+                                </p>
+                                <p>
+                                    Upaya pelestarian terhadap makam-makam ini, baik yang dilakukan sebelum maupun setelah bencana tsunami 2004, menunjukkan kesadaran akan pentingnya melestarikan warisan sejarah dan menghormati leluhur. Pemugaran situs-situs ini menjadi bukti nyata dari usaha menjaga identitas budaya dan sejarah Aceh. Konvergensi antara bukti arkeologis fisik dan data tekstual dari inskripsi memperkuat akurasi rekonstruksi sejarah Kesultanan Aceh. Dengan demikian, makam-makam ini bukan hanya monumen masa lalu, tetapi juga jendela yang membuka pemahaman kita terhadap sistem pencatatan, keagamaan, dan kebudayaan yang pernah berjaya di Nusantara.
+                                </p>
+                            </div>
+                            <button class="read-more-btn text-blue-500 hover:underline mt-2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12 rounded-t-lg">
+        <div class="container mx-auto text-center px-4">
+            <p class="text-lg font-semibold mb-4">Aceh Legacy Chronicles</p>
+            <p class="text-sm mb-4">&copy; 2023 Hak Cipta Dilindungi. Didesain dengan semangat untuk sejarah.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10Z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.797.048.843.04 1.15.138 1.51.298a2.432 2.432 0 0 1 1.714 1.714c.16.36.258.667.298 1.51.046 1.013.048 1.372.048 3.797s-.002 2.784-.048 3.797c-.04.843-.138 1.15-.298 1.51a2.432 2.432 0 0 1-1.714 1.714c-.36.16-.667.258-1.51.298-.046 1.013-.048 1.372-.048 3.797s.002 2.784.048 3.797c.04.843.138 1.15.298 1.51a2.432 2.432 0 0 1-1.714 1.714c-.36.16-.667.258-1.51.298-1.013.046-1.372.048-3.797.048s-2.784-.002-3.797-.048c-.843-.04-1.15-.138-1.51-.298a2.432 2.432 0 0 1-1.714-1.714c-.16-.36-.258-.667-.298-1.51-.046-1.013-.048-1.372-.048-3.797s.002-2.784.048-3.797c.04-.843.138-1.15.298-1.51A2.432 2.432 0 0 1 3.29 5.232c-.16-.36-.258-.667-.298-1.51C2.944 2.705 2.942 2.346 2.942 2h9.373ZM12 4.807a7.193 7.193 0 1 0 0 14.386 7.193 7.193 0 0 0 0-14.386ZM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm6.807-8.718a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12.488 2.544a.75.75 0 0 0-1.071-.056L3.91 8.79a.75.75 0 0 0-.215.707l1.62 7.394a.75.75 0 0 0 .866.522l5.053-1.318 3.99-3.99a.75.75 0 0 1 1.06 0l.969.969a.75.75 0 0 0 1.06 0l2.034-2.034a.75.75 0 0 0 0-1.06L12.488 2.544Z" />
+                        <path d="M19.5 16.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0ZM12.75 18a.75.75 0 0 0-1.5 0v.75H10.5a.75.75 0 0 0 0 1.5h.75v.75a.75.75 0 0 0 1.5 0v-.75h.75a.75.75 0 0 0 0-1.5h-.75V18Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>

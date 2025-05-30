@@ -1,0 +1,400 @@
+
+/* Gaya untuk navbar yang digulir (transparan dengan blur) */
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.023); /* Sedikit transparan putih */
+    backdrop-filter: blur(8px); /* Efek blur */
+    -webkit-backdrop-filter: blur(8px); /* Kompatibilitas Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Gaya untuk gambar galeri */
+.gallery-item {
+    transition: transform 0.3s ease-in-out;
+}
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+#sejarah-timeline {
+    max-width: 75%;
+}
+/* Efek hover kartu artikel kustom (juga bisa diatur di HTML dengan Tailwind) */
+.article-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Gaya untuk timeline di halaman sejarah */
+.timeline-container {
+    position: relative;
+    padding-left: 150px; /* Ruang lebih besar untuk garis, ikon, dan tanggal */
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 25px; /* Posisi garis vertikal */
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #4e3900; /* Warna biru muda untuk garis timeline */
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.timeline-item-date {
+    position: absolute;
+    left: -95px; /* Posisi tanggal di sebelah kiri garis (relative to timeline-item) */
+    top: 15px;
+    width: 80px; /* Lebar untuk teks tanggal */
+    text-align: right;
+    font-weight: 600;
+    color: #4e3900; /* Warna biru untuk tanggal */
+    font-size: 0.9rem;
+}
+
+/* Penyesuaian responsif untuk timeline (perbaikan tabrakan) */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 30px; /* Kurangi padding untuk mobile */
+    }
+    .timeline-container::before {
+        left: 15px; /* Sesuaikan posisi garis */
+    }
+
+    .timeline-item {
+        padding: 15px; /* Kurangi padding item */
+        margin-left: 15px; /* Geser item sedikit ke kanan agar ikon tidak tumpang tindih */
+        margin-bottom: 30px; /* Kurangi jarak antar item */
+    }
+
+    /* Posisikan ikon dan tanggal di dalam item untuk mobile, bukan di luar */
+    .timeline-item-date {
+        position: static; /* Buat tanggal mengalir secara normal dalam item */
+        width: auto;
+        text-align: left;
+        margin-bottom: 5px; /* Beri jarak ke bawah */
+        font-size: 0.85rem;
+        color: #4e3900;
+        padding-left: 0; /* Hapus padding yang statis */
+    }
+
+    /* Gaya untuk membuat ikon dan tanggal sejajar di atas judul pada mobile */
+    .timeline-item .header-mobile-flex {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px; /* Jarak antara header info dan konten utama */
+    }
+}
+
+
+/* Carousel styles */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    /* Remove fixed height to allow content to dictate height */
+    /* height: auto;  Already handled by inline style in HTML, but good to remember */
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* Ensure slides container takes full width of its parent */
+    width: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%; /* Each slide takes full width */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem 4rem 1rem; /* Increased padding bottom for dots */
+    flex-shrink: 0; /* Prevent slides from shrinking */
+    flex-grow: 1; /* Allow slides to grow to fill space if needed */
+}
+
+.carousel-slide img {
+    width: 100%; /* Make image take full width of its parent (.carousel-slide) */
+    max-width: 400px; /* Limit max width of image */
+    height: 250px; /* Fixed height for image to maintain consistency, adjust as needed */
+    object-fit: cover; /* Ensure image covers the area, cropping if necessary */
+    margin-bottom: 1rem; /* Add some space below the image */
+}
+
+.carousel-slide h3 {
+    margin-bottom: 0.5rem; /* Space below title */
+}
+
+.carousel-slide p {
+    margin-bottom: 0; /* Remove extra space below paragraph if not needed */
+    min-width: 100%; /* Ensure text fits within the slide width */
+    text-align: center;
+}
+
+
+.carousel-dots {
+    position: absolute; /* Crucial for positioning the dots */
+    bottom: 3rem; /* Position dots 1.5rem from the bottom of the container */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #CBD5E0; /* gray-300 */
+    border-radius: 50%;
+    margin: 0 5px; /* Added some margin for spacing */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: #3B82F6; /* blue-500 */
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-arrow.left {
+    left: 10px;
+}
+
+.carousel-arrow.right {
+    right: 10px;
+}
+/* Hover effect for profile cards */
+.profile-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for source links */
+.source-link:hover {
+    color: #2563EB; /* blue-700 */
+    text-decoration: underline;
+}
+
+#batik_kiri {
+    z-index: 1;
+    left: 0%;
+    position: fixed;
+  }
+  
+  #bunga_kanan_atas {
+    right: -1%;
+    top: -1%;
+    max-width: 70%;
+    max-height: 70%;
+  }
+  
+  #batik_kanan {
+    right: 0%;
+    position: fixed;
+  }
+  
+  #bunga_kiri_atas {
+    top: -1%;
+    max-width: 70%;
+    max-height: 70%;
+  }
+  
+  #bunga_kiri_bawah {
+    left: -3%;
+  }
+  
+  #bunga_kanan_bawah {
+    right: -1%;
+    bottom: -5%;
+    max-width: 70%;
+    max-height: 70%;
+  }
+  
+  #awan {
+    width: 150%;
+    right: 0%;
+  }
+  
+  #awan2 {
+    width: 100%;
+    left: 0%;
+  }
+  
+  #awan3 {
+    width: 100%;
+    right: 0%;
+  }
+  
+  #wayang {
+    right: 0%;
+  }
+  
+  #tumbuh_bawah {
+    right: 0;
+  }
+  
+  .bekgron {
+    position: absolute;
+    height: 100%;
+  }
+  
+  #upperContainer {
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    background: transparent;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  /*whastapp*/
+   /* Add any custom styles here if needed, e.g., for the main section's background/shadow */
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .rounded-xl {
+            border-radius: 0.75rem; /* Equivalent to Bootstrap's rounded-3 or a bit more */
+        }
+        .text-gray-900 {
+            color: #1a202c;
+        }
+        .text-gray-700 {
+            color: #4a5568;
+        }
+        .text-gray-500 {
+            color: #a0aec0;
+        }
+        .mb-12 {
+            margin-bottom: 3rem; /* Tailwind-like spacing */
+        }
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        .mb-3 {
+            margin-bottom: 0.75rem;
+        }
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        .p-8 {
+            padding: 2rem;
+        }
+        .leading-relaxed {
+            line-height: 1.625; /* Tailwind-like line-height */
+        }
+        .font-bold {
+            font-weight: 700;
+        }
+        .font-semibold {
+            font-weight: 600;
+        }
+        .text-3xl {
+            font-size: 1.875rem; /* 30px */
+            line-height: 2.25rem; /* 36px */
+        }
+        .text-xl {
+            font-size: 1.25rem; /* 20px */
+            line-height: 1.75rem; /* 28px */
+        }
+        .text-xs {
+            font-size: 0.75rem; /* 12px */
+            line-height: 1rem; /* 16px */
+        }
+        .text-center {
+            text-align: center;
+        }
+        .object-cover {
+            object-fit: cover;
+        }
+        /* Grid gap for md breakpoint, similar to gap-8 */
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .gap-8 {
+                gap: 2rem;
+            }
+        }
+        
+        /* Anda bisa menambahkan CSS kustom di sini jika diperlukan.
+   Tailwind CSS sudah menangani sebagian besar styling. */
+.description-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.description-preview {
+    /* Batasi tinggi preview paragraf */
+    max-height: 7.5em; /* perkiraan 5 baris untuk ukuran font xs */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Batasi hingga 5 baris */
+    -webkit-box-orient: vertical;
+}
+
+.description-full {
+    display: none;
+}
+
+img {
+    object-fit: cover;
+}

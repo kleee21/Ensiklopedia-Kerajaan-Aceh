@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceh Legacy Chronicles - Beranda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Terapkan font Inter secara global dan pastikan pengguliran yang mulus */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-image: url(Image/1.webp); 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-size: cover;
+        }
+        /* Aktifkan tautan navigasi yang benar untuk halaman ini */
+        .nav-link[href="index.html"] {
+            @apply text-blue-600 font-semibold;
+        }
+        /* Gambar latar belakang hero kustom dengan overlay */
+        .hero-background {
+            background-image: url('Image/IB-10-1.png'); /* Gambar placeholder */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)); /* Overlay lebih gelap */
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        /* Efek hover kartu artikel kustom */
+        .article-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adjust carousel-container and slide styles for flexibility */
+        .carousel-container {
+            height: auto !important; /* Allow height to be determined by content */
+        }
+        .carousel-slide {
+            height: auto; /* Allow height to be determined by content */
+            padding-bottom: 3rem; /* Add some padding to account for dots */
+        }
+        .carousel-slide img {
+            max-width: 100%; /* Ensure images don't overflow */
+            height: 250px; /* Set a fixed height for images or remove for full flexibility */
+            object-fit: cover;
+        }
+        .carousel-dots {
+            position: absolute; /* Position dots absolutely within the container */
+            bottom: 1rem; /* Adjust as needed */
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10; /* Ensure dots are above slides */
+        }
+        /* Carousel specific styles for responsiveness */
+        .carousel-container {
+            position: relative;
+            width: 100%; /* Make it full width of its parent */
+            max-width: 4xl; /* Tailwind max-width class */
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%; /* Each slide takes full width of the container */
+            width: 100%; /* Ensure full width */
+            padding: 2rem; /* p-8 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box; /* Include padding in the width calculation */
+            text-align: center; /* Center text within the slide */
+        }
+
+        .carousel-slide img {
+            width: 100%; /* Image takes full width of the slide */
+            height: 250px; /* Fixed height for consistency */
+            object-fit: cover;
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            margin-bottom: 1rem; /* mb-4 */
+
+            /* Responsive image height */
+            @media (min-width: 768px) { /* md breakpoint */
+                height: 350px; /* Taller on medium screens and up */
+            }
+            @media (min-width: 1024px) { /* lg breakpoint */
+                height: 450px; /* Even taller on large screens and up */
+            }
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.5rem;
+            border-radius: 0.25rem;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-arrow.left {
+            left: 1rem;
+        }
+
+        .carousel-arrow.right {
+            right: 1rem;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-transparent shadow-md py-4 px-6 md:px-10 sticky top-0 z-50 rounded-b-lg transition-all duration-300 ease-in-out">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-gray-900 hover:text-blue-700 transition duration-300 rounded-md p-2">
+                Aceh Legacy Chronicles
+            </a>
+
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <ul id="main-nav" class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="nav-link active text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
+                <li><a href="sejarah.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sejarah</a></li>
+                <li><a href="galeri.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Profil</a></li>
+                <li><a href="sumber.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sumber</a></li>
+            </ul>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg mt-2 rounded-lg">
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="index.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
+                <li><a href="sejarah.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sejarah</a></li>
+                <li><a href="galeri.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Profil</a></li>
+                <li><a href="sumber.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sumber</a></li>
+            </ul>
+        </div>
+    </header>
+
+      <!-- Background Layers -->
+  <div id="upperContainer">
+    <img src="Image/10.png" id="awan" class="bekgron" data-aos="zoom-in" loading="lazy"> 
+    <img src="Image/11.png" id="awan2" class="bekgron" data-aos="zoom-in" loading="lazy">
+    <img src="Image/12.png" id="awan3" class="bekgron" data-aos="zoom-in" loading="lazy">
+  </div>
+
+    <main class="container mx-auto mt-8 px-4 md:px-0">
+
+        <section id="beranda-hero" class="mb-12" data-aos="fade-up">
+            <div class="hero-background rounded-xl shadow-lg overflow-hidden h-96 md:h-[500px] flex items-center justify-center text-white">
+                <div class="hero-content text-center p-6">
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        Mengungkap Sejarah kerajaan Aceh
+                    </h1>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="200">
+                        Jelajahi kisah-kisah menawan, tradisi kuno, dan warisan abadi Aceh.
+                    </p>
+                    <a href="sejarah.html" class="inline-block mt-8 px-8 py-3 bg-white text-blue-700 font-semibold rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
+                        Jelajahi Lebih Lanjut
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="beranda-carousel" class="mt-16 mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-900">Fakta tentang kerajaan Aceh</h2>
+            <div class="carousel-container relative w-full max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="carousel-slides">
+                    <div class="carousel-slide p-8 flex flex-col items-center justify-center">
+                        <img src="Image/Baiturrahman_1303539688.jpg" alt="Masjid Raya Baiturrahman" class="w-full rounded-lg shadow-md mb-4 object-cover">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Keagungan Masjid Raya Baiturrahman</h3>
+                        <p class="text-gray-700 text-lg max-w-xl">Simbol ketahanan dan keindahan arsitektur Islam di Aceh, berdiri kokoh melewati zaman. Ini adalah salah satu landmark paling penting di Aceh, menjadi pusat spiritual dan sejarah bagi masyarakat setempat. Keindahan arsitekturnya mencerminkan warisan budaya yang kaya.</p>
+                    </div>
+                    <div class="carousel-slide p-8 flex flex-col items-center justify-center">
+                        <img src="Image/peta.png" alt="Tari Saman" class="w-full rounded-lg shadow-md mb-4 object-cover">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Peta Kerajaan aceh</h3>
+                        <p class="text-gray-700 text-lg max-w-xl">.Kerajaan Aceh Darussalam adalah kerajaan Islam berpengaruh di Asia Tenggara pada abad ke-16 hingga 17, dengan wilayah kekuasaan mencakup utara Sumatra, pesisir Semenanjung Malaya, dan kawasan strategis di Selat Malaka. Peta Kerajaan Aceh mencerminkan kekuatan politik, ekonomi, dan peran pentingnya dalam perdagangan rempah serta penyebaran Islam.</p>
+                    </div>
+                    <div class="carousel-slide p-8 flex flex-col items-center justify-center">
+                        <img src="Image/perang.jpg" alt="Kopi Gayo" class="w-full rounded-lg shadow-md mb-4 object-cover">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Perang Portugis</h3>
+                        <p class="text-gray-700 text-lg max-w-xl">Perang Aceh melawan Portugis terjadi pada abad ke-16 dan ke-17, ketika Kesultanan Aceh Darussalam berusaha mengusir Portugis dari wilayahnya dan mengamankan jalur perdagangan rempah-rempah. Perang ini menunjukkan kekuatan dan ketahanan rakyat Aceh dalam mempertahankan kedaulatan dan wilayahnya dari pengaruh asing.</p>
+                    </div>
+                </div>
+                <div class="carousel-arrow left">&lt;</div>
+                <div class="carousel-arrow right">&gt;</div>
+                <div class="carousel-dots"></div>
+            </div>
+        </section>
+
+        <section id="beranda-featured-articles" class="mt-16 mb-12">
+            <h2 class="text-3xl font-bold text-center mb-10 text-gray-900" data-aos="fade-up">Kronik Unggulan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://placehold.co/600x400/60A5FA/FFFFFF?text=Kesultanan" alt="Kesultanan Aceh" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs text-gray-500 uppercase font-medium mb-1 block">Sejarah</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Masa Keemasan Kesultanan</h3>
+                        <p class="text-gray-600 text-sm mb-4">Menyelami kemakmuran dan pengaruh Kesultanan Aceh pada puncaknya, periode kebesaran dan kekuasaan.</p>
+                        <a href="sejarah.html" class="text-blue-600 hover:underline font-medium flex items-center">Baca Selengkapnya <span class="ml-1">&rarr;</span></a>
+                    </div>
+                </article>
+                <article class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://placehold.co/600x400/60A5FA/FFFFFF?text=Seni" alt="Seni Tradisional Aceh" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs text-gray-500 uppercase font-medium mb-1 block">Budaya</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Seni Tradisional Aceh</h3>
+                        <p class="text-gray-600 text-sm mb-4">Menjelajahi kerajinan, musik, dan tarian rumit yang mendefinisikan identitas dan warisan budaya Aceh yang kaya.</p>
+                        <a href="sejarah.html" class="text-blue-600 hover:underline font-medium flex items-center">Baca Selengkapnya <span class="ml-1">&rarr;</span></a>
+                    </div>
+                </article>
+                <article class="article-card bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://placehold.co/600x400/60A5FA/FFFFFF?text=Perdagangan" alt="Jalur Perdagangan Rempah" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs text-gray-500 uppercase font-medium mb-1 block">Ekonomi</span>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Jalur Perdagangan Rempah</h3>
+                        <p class="text-gray-600 text-sm mb-4">Bagaimana Aceh menjadi pusat penting dalam jaringan perdagangan rempah global berabad-abad yang lalu, menghubungkan Timur dan Barat.</p>
+                        <a href="sejarah.html" class="text-blue-600 hover:underline font-medium flex items-center">Baca Selengkapnya <span class="ml-1">&rarr;</span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12 rounded-t-lg">
+        <div class="container mx-auto text-center px-4">
+            <p class="text-lg font-semibold mb-4">Aceh Legacy Chronicles</p>
+            <p class="text-sm mb-4">&copy; 2023 Hak Cipta Dilindungi. Didesain dengan semangat untuk sejarah.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10Z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.797.048.843.04 1.15.138 1.51.298a2.432 2.432 0 0 1 1.714 1.714c.16.36.258.667.298 1.51.046 1.013.048 1.372.048 3.797s-.002 2.784-.048 3.797c-.04.843-.138 1.15-.298 1.51a2.432 2.432 0 0 1-1.714 1.714c-.36.16-.667.258-1.51.298-.046 1.013-.048 1.372-.048 3.797s.002 2.784.048 3.797c.04.843.138 1.15.298 1.51a2.432 2.432 0 0 1-1.714 1.714c-.36.16-.667.258-1.51.298-1.013.046-1.372.048-3.797.048s-2.784-.002-3.797-.048c-.843-.04-1.15-.138-1.51-.298a2.432 2.432 0 0 1-1.714-1.714c-.16-.36-.258-.667-.298-1.51-.046-1.013-.048-1.372-.048-3.797s.002-2.784.048-3.797c.04-.843.138-1.15.298-1.51A2.432 2.432 0 0 1 3.29 5.232c-.16-.36-.258-.667-.298-1.51C2.944 2.705 2.942 2.346 2.942 2h9.373ZM12 4.807a7.193 7.193 0 1 0 0 14.386 7.193 7.193 0 0 0 0-14.386ZM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm6.807-8.718a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12.488 2.544a.75.75 0 0 0-1.071-.056L3.91 8.79a.75.75 0 0 0-.215.707l1.62 7.394a.75.75 0 0 0 .866.522l5.053-1.318 3.99-3.99a.75.75 0 0 1 1.06 0l.969.969a.75.75 0 0 0 1.06 0l2.034-2.034a.75.75 0 0 0 0-1.06L12.488 2.544Z" />
+                        <path d="M19.5 16.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0ZM12.75 18a.75.75 0 0 0-1.5 0v.75H10.5a.75.75 0 0 0 0 1.5h.75v.75a.75.75 0 0 0 1.5 0v-.75h.75a.75.75 0 0 0 0-1.5h-.75V18Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+          duration: 800,
+          once: true
+        });
+      </script>
+    <script src="script/script.js"></script>
+</body>
+</html>

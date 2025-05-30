@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceh Legacy Chronicles - Sejarah</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            background-image: url(Image/1.webp); 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-size: cover;
+        }
+        /* Aktifkan tautan navigasi yang benar untuk halaman ini */
+        .nav-link[href="sejarah.html"] {
+            @apply text-blue-600 font-semibold;
+        }
+        /* Penyesuaian agar ikon dan tanggal timeline di mobile bisa sejajar */
+        .timeline-item .timeline-item-icon,
+        .timeline-item .timeline-item-date {
+            /* Pastikan mereka tersembunyi di mobile jika menggunakan desain desktop */
+            /* atau pastikan mereka berfungsi sebagai flex item */
+            @apply block md:absolute; /* default block for mobile, absolute for md+ */
+        }
+        
+    </style>
+</head>
+<body class="text-gray-800" >
+
+    <header class="bg-transparent shadow-md py-4 px-6 md:px-10 sticky top-0 z-50 rounded-b-lg transition-all duration-300 ease-in-out">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-gray-900 hover:text-blue-700 transition duration-300 rounded-md p-2">
+                Aceh Legacy Chronicles
+            </a>
+
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <ul id="main-nav" class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
+                <li><a href="sejarah.html" class="nav-link active text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sejarah</a></li>
+                <li><a href="galeri.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Profil</a></li>
+                <li><a href="sumber.html" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sumber</a></li>
+            </ul>
+        </nav>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg mt-2 rounded-lg" >
+            <ul class="flex flex-col space-y-2 p-4">
+                <li><a href="index.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
+                <li><a href="sejarah.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sejarah</a></li>
+                <li><a href="galeri.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Galeri</a></li>
+                <li><a href="profil.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Profil</a></li>
+                <li><a href="sumber.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sumber</a></li>
+            </ul>
+        </div>
+    </header>
+
+  <!-- Background Layers -->
+  <div id="upperContainer">
+    <img src="Image/11.png" alt="" id="awan2" class="bekgron" data-aos="zoom-in">
+    <img src="Image/18.png" alt="" id="tumbuh_atas" class="bekgron" data-aos="zoom-in">
+    <img src="Image/19.png" alt="" id="bangunan_bawah" class="bekgron" data-aos="zoom-in">
+    <img src="Image/20.png" alt="" id="wayang" class="bekgron" data-aos="zoom-in">
+    <img src="Image/21.png" alt="" id="tumbuh_bawah" class="bekgron" data-aos="zoom-in">
+  </div>
+
+    <main class="container mx-auto mt-8 px-4 md:px-0">
+        <center><section id="sejarah-timeline" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Garis Waktu Sejarah Aceh</h2>
+
+            <div class="timeline-container max-w-4xl mx-auto">
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="header-mobile-flex">
+                        <div class="timeline-item-date">1469</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">berdirinya kerajaan aceh</h3>
+                    <p class="text-gray-700 text-sm">Kerajaan Aceh didirikan pada abad ke-13 oleh Sultan Ali Mughayat Syah. Awalnya, kerajaan ini bernama Kerajaan Aceh Darussalam dan berpusat di Banda Aceh. Kerajaan Aceh berkembang pesat di bawah kepemimpinan Sultan Iskandar Muda pada abad ke-17, menjadi salah satu kerajaan Islam terkuat di Asia Tenggara. Kerajaan ini terkenal karena kekuatan militer, perdagangan, dan penyebaran Islam di wilayah tersebut.</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="header-mobile-flex"> 
+                        <div class="timeline-item-date">Abad ke-7</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Kerajaan Awal dan Kedatangan Islam</h3>
+                    <p class="text-gray-700 text-sm">Islam masuk ke Kerajaan Aceh pada abad ke-7 melalui jalur perdagangan dan interaksi dengan pedagang Arab dan Gujarat. Proses islamisasi semakin kuat pada abad ke-13, yang kemudian membentuk identitas Islam yang kuat di Aceh dan menjadikannya salah satu pusat penyebaran Islam di Asia Tenggara.</p>
+                </div>
+
+                                <div class="timeline-item" data-aos="fade-right">
+                    <div class="header-mobile-flex">
+                        <div class="timeline-item-date">1523-1524</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Perang kerajaan aceh dengan Portugis</h3>
+                    <p class="text-gray-700 text-sm">Perang Aceh melawan Portugis terjadi pada abad ke-16, dipicu oleh upaya Portugis menguasai perdagangan rempah-rempah di wilayah tersebut. Konflik ini berlangsung selama beberapa dekade, dengan Kerajaan Aceh di bawah Sultan Iskandar Muda berhasil mengusir Portugis dari Malaka pada tahun 1629. Perlawanan Aceh terhadap Portugis memperkuat posisi Aceh sebagai kekuatan maritim dan Islam di Asia Tenggara.</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="header-mobile-flex">
+                        <div class="timeline-item-date">Abad ke-16</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Puncak Kejayaan Kesultanan Aceh Darussalam</h3>
+                    <p class="text-gray-700 text-sm">Puncak kejayaan Kerajaan Aceh terjadi pada masa pemerintahan Sultan Iskandar Muda (1607-1636), ketika kerajaan ini menjadi salah satu pusat perdagangan dan kekuatan militer terkuat di Asia Tenggara. Di bawah kepemimpinannya, Aceh menguasai perdagangan rempah-rempah dan memperluas wilayah kekuasaannya. Masa ini juga ditandai dengan perkembangan budaya dan pendidikan Islam yang pesat di Aceh.</p>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="header-mobile-flex">
+                        <div class="timeline-item-date">1903</div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Keruntuhan Kerajaan Aceh Darrusalam</h3>
+                    <p class="text-gray-700 text-sm">Keruntuhan Kerajaan Aceh pada 1903 terjadi setelah perlawanan panjang terhadap Belanda yang berlangsung selama beberapa dekade. Pada akhirnya, sultan terakhir terpaksa menyerahkan kekuasaan, menandai berakhirnya kemerdekaan Kerajaan Aceh dan integrasinya ke dalam Hindia Belanda. Perlawanan rakyat Aceh terus berlanjut meskipun kerajaan telah jatuh.</p>
+                </div>
+
+            </div>
+        </section>
+        </center>
+        <br>
+        <br>
+        
+
+<section id="penyebaran-islam" class="mb-12 bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Sejarah Kerajaan Aceh</h2>
+    <p class="text-gray-700 leading-relaxed mb-8">Penyebaran Islam oleh Kerajaan Demak sangat kuat melalui dakwah, perdagangan, dan kesenian.</p>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 mb-10">
+        <div class="col" data-aos="fade-right" data-aos-delay="100">
+            <div class="card h-100 border-0">
+                <img src="Image/berdiri.jpg" class="card-img-top object-cover rounded-lg shadow-md" alt="Kesenian Islam Khas Demak" style="height: 200px;">
+                <div class="card-body">
+                    <h3 class="card-title text-xl font-semibold text-gray-900 mb-3">Kesenian Islam Khas Demak</h3>
+                    <p class="card-text">
+                        Kerajaan aceh adalah salah satu Kerajaan Islam yg terletak di <b>ujung pulau Sumatra</b>, yang berlokasi di Kutaraja atau sekarang lebih dikenal dengan Banda Aceh.
+                    </p>
+                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#modalKesenianIslam">
+                        See more
+                    </button>
+                    <p class="text-xs text-gray-500 mt-4">(Sumber: detiknews, kumparan)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col" data-aos="fade-left" data-aos-delay="200">
+            <div class="card h-100 border-0">
+                <img src="Image/perangbos.jpg" class="card-img-top object-cover rounded-lg shadow-md" alt="Perang Dengan Portugis" style="height: 200px;">
+                <div class="card-body">
+                    <h3 class="card-title text-xl font-semibold text-gray-900 mb-3">Perang Dengan Portugis</h3>
+                    <p class="card-text">
+                        Pada 1511, Portugis telah menaklukkan Malaka. Malaka adalah pintu gerbang lalu lintas pelayaran dan perdagangan dunia, di mana para pedagang dari Barat dan Timur saling bertemu.
+                    </p>
+                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#modalPerangPortugis">
+                        See more
+                    </button>
+                    <p class="text-xs text-gray-500 mt-4">(Sumber: detikcom, kumparan)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col" data-aos="fade-left" data-aos-delay="200">
+            <div class="card h-100 border-0">
+                <img src="Image/jaya.jpg" class="card-img-top object-cover rounded-lg shadow-md" alt="Masa Kejayaan Kerajaan Aceh" style="height: 200px;">
+                <div class="card-body">
+                    <h3 class="card-title text-xl font-semibold text-gray-900 mb-3">Masa Kejayaan Kerajaan Aceh</h3>
+                    <p class="card-text">
+                        Masa kejayaan Kerajaan Aceh terjadi pada abad ke-17 di bawah pemerintahan Sultan Iskandar Muda. Sultan Iskandar Muda adalah salah satu penguasa paling berpengaruh dalam sejarah Aceh.
+                    </p>
+                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#modalMasaKejayaan">
+                        See more
+                    </button>
+                    <p class="text-xs text-gray-500 mt-4">(Sumber: detikcom, kumparan)</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col" data-aos="fade-left" data-aos-delay="200">
+            <div class="card h-100 border-0">
+                <img src="Image/dagang.jpg" class="card-img-top object-cover rounded-lg shadow-md" alt="Aceh menjadi Bandar Perdagangan" style="height: 200px;">
+                <div class="card-body">
+                    <h3 class="card-title text-xl font-semibold text-gray-900 mb-3">Aceh menjadi Bandar Perdagangan</h3>
+                    <p class="card-text">
+                        Kedatangan Portugis ke Malaka pada tahun 1511 menandai awal perubahan besar dalam peta perdagangan dan politik di Asia Tenggara.
+                    </p>
+                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#modalBandarPerdagangan">
+                        See more
+                    </button>
+                    <p class="text-xs text-gray-500 mt-4">(Sumber: detikcom, kumparan)</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col" data-aos="fade-left" data-aos-delay="200">
+            <div class="card h-100 border-0">
+                <img src="Image/dagang.jpg" class="card-img-top object-cover rounded-lg shadow-md" alt="kehidupan-politik Aceh" style="height: 200px;">
+                <div class="card-body">
+                    <h3 class="card-title text-xl font-semibold text-gray-900 mb-3">Kehidupan Politik Aceh</h3>
+                    <p class="card-text">
+                        Kesultanan Demak memegang perang yang paling penting dalam perkembangan politik di seluruh Jawa
+                    </p>
+                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#modalKehidupanPolitik">
+                        See more
+                    </button>
+                    <p class="text-xs text-gray-500 mt-4">(Sumber: detikcom, kumparan)</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col" data-aos="fade-left" data-aos-delay="200">
+            <div class="card h-100 border-0">
+                <img src="Image/dagang.jpg" class="card-img-top object-cover rounded-lg shadow-md" alt="Keruntuhan Kerajaan Aceh" style="height: 200px;">
+                <div class="card-body">
+                    <h3 class="card-title text-xl font-semibold text-gray-900 mb-3">Keruntuhan Kerajaan Aceh</h3>
+                    <p class="card-text">
+                        Pada tahun 1641, atau sepeninggalan Sultan Iskandar Thani, Kerajaan Aceh mengalami kemunduran.
+                    </p>
+                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#modalKeruntuhanAceh">
+                        See more
+                    </button>
+                    <p class="text-xs text-gray-500 mt-4">(Sumber: detikcom, kumparan)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="modalKesenianIslam" tabindex="-1" aria-labelledby="modalKesenianIslamLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalKesenianIslamLabel">Kesenian Islam Khas Demak</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Kerajaan aceh adalah salah satu Kerajaan Islam yg terletak di <b>ujung pulau Sumatra</b>, yang berlokasi di Kutaraja atau sekarang lebih dikenal dengan Banda Aceh. Letaknya yang strategis di tepi Selat Malaka yang memungkinkan Aceh menjadi <b>pusat perdagangan dan pelayaran</b>.
+                    Kerajaan Aceh didirikan oleh <b>Mudzaffar Syah pada abad ke-15</b>, dengan pusatnya dibangun di atas puing-puing Kerajaan Lamuri. Pada masa pemerintahan Ali Mughayat Syah, kerajaan ini <b>mencapai status penuhnya</b> setelah menyatukan Kerajaan Lamuri dan Daral-Kalam.
+                    Kesultanan Aceh yang terletak di utara pulau Sumatra. Kerajaan ini merupakan kekuatan regional utama pada <b>abad ke-16 dan ke-17</b> sebelum mengalami periode penurunan yang panjang
+                    <b>Kitab Bustanussalatin</b> adalah salah satu peninggalan Kerajaan Aceh.
+                    <br><br>Kitab ini dibuat sejak masuknya penggunaan Bahasa Melayu dalam berbagai bidang di kerajaan. Bustanussalatin memiliki arti taman raja-raja. Kitab Bustanussalatin ditulis oleh Syeikh Nurrudin ar-Raniri pada 1047 H atau 1637 M, yakni pada masa Kerajaan Aceh yang dipimpin oleh Sultan Iskandar Muda.
+                    Kitab Bustanussalatin menggambarkan bagaimana kehidupan Kerajaan Aceh pada abad ke-16 hingga abad ke-17. Secara umum, Kitab Bustanussalatin memiliki isi secara agamawi dan historis yang dijadikan satu. Kitab Bustanussalatin inilah yang paling lengkap mengisahkan raja-raja Melayu, khususnya Kerajaan Aceh. <br><br>
+                    Penemuan batu nisan peninggalan Kerajaan Aceh, termasuk batu nisan Sultan Firman Syah, mengkonfirmasi keberadaan dan pentingnya Kutaraja sebagai pusat pemerintahan dan budaya Aceh pada masa itu.
+                    Kerajaan Aceh Darussalam didirikan oleh Sultan Ali Mughayat Syah pada tahun 1496 M. Beliau merupakan sultan ke-11 dari Kerajaan Darussalam, yang sebelumnya dikenal sebagai Kerajaan Indra Purba. Sultan Ali Mughayat Syah mengganti nama Kerajaan menjadi Aceh Darussalam dan memperluas wilayah kekuasaanya dengan menyatukan beberapa Kerajaan kecil, termasuk Pidie, sebagai respon terhadap ancaman Portugis di Malaka dan bergabung dengan Lamuri. Ia juga dikenal sebagai tokoh pertama dari Aceh yang menentang kehadiran Portugis di Selat Malaka dengan membentuk Angkatan laut dan darat yang kuat serta merumuskan dasar-dasar politik luar negeri Kerajaan.
+                    <br><br>Sultan Ali Mughayat Syah juga meletakan kebijakan politik luar negeri Kerajaan Aceh, yaitu:
+                    <ul>
+                        <li>1. Berswasembada, tidak bergantung pada pihak luar</li>
+                        <li>2. Menjalin persahabatan dengan Kerajaan Islam di Nusantara</li>
+                        <li>3. Waspada terhadap negara Barat, terutama Portugis</li>
+                        <li>4. Menerima bantuan tenaga ahli dari luar</li>
+                        <li>5. Menyebarkan dakwah Islam ke seluruh Nusantara</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPerangPortugis" tabindex="-1" aria-labelledby="modalPerangPortugisLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalPerangPortugisLabel">Perang Dengan Portugis</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Pada 1511, Portugis telah menaklukkan Malaka. Malaka adalah pintu gerbang lalu lintas pelayaran dan perdagangan dunia, di mana para pedagang dari Barat dan Timur saling bertemu. Jatuhnya Malaka ke tangan Portugis pada 1511 pun membawa dampak sangat besar bagi dunia. Salah satu pihak yang terdampak kekuasaan Portugis di Malaka adalah Kerajaan Aceh, yang pusat pemerintahannya berada di ujung barat Pulau Sumatera dan sangat dekat dengan Malaka.
+                    Pada awalnya, Kerajaan Aceh cukup diuntungkan dengan keberadaan Portugis di Malaka. Monopoli perdagangan Portugis di Malaka memberikan keuntungan bagi kemajuan Kerajaan Aceh, karena pelabuhannya semakin ramai dikunjungi para pedagang Islam yang tidak lagi berdagang di Malaka. Pada perkembangannya, Aceh dan Portugis menganggap satu sama lain sebagai saingan dalam bidang politik, ekonomi, dan penyebaran agama. <br><br>
+                    Bangsa Portugis kemudian memblokade perdagangan Aceh dan melakukan penangkapan kapal-kapal Aceh, oleh karena itulah Kerajaan Aceh memberi perlawanan terhadap kedudukan Portugis di Malaka. Selain itu, beberapa alasan lain Kerajaan Aceh menyerang Portugis di Malaka yakni:
+                    <ul>
+                        <li>1. Keinginan Aceh menguasai jalur perdagangan di Selat Malaka</li>
+                        <li>2. Ambisi Portugis untuk memonopoli perdagangan Aceh</li>
+                        <li>3. Portugis melakukan blokade terhadap perdagangan Aceh</li>
+                        <li>4. Portugis melakukan penangkapan kapal-kapal Aceh</li>
+                    </ul>
+                    <br><br>
+                    Pada 1523 dan 1524, Portugis mengirim pasukan untuk menyerang Aceh, tetapi gagal. Kemudian pada 1537, giliran Kerajaan Aceh untuk pertama kalinya mengirim ekspedisi ke Malaka untuk menggempur kedudukan Portugis. Perlawanan rakyat Aceh melawan Portugis kala itu dipimpin langsung oleh Sultan Alauddin Riayat Syah, yang didukung oleh sekitar 3.000 tentara.
+                    Meski perjuangan rakyat Aceh memerangi Portugis masih menemui kegagalan, Sultan Alauddin belum menyerah. Sultan Alauddin memperbarui strategi perlawanannya dengan meminta bantuan dari Kekaisaran Turki Usmani, yang saat itu dikenal sebagai imperium Islam terkuat di dunia.
+                    Pada 1560-an, Sultan Alauddin fokus membangun hubungan diplomatik dengan Kekaisaran Ottoman agar dibantu mengusir Portugis dari Malaka.
+                    <br><br>Melalui surat-suratnya, Sultan Alauddin mengajukan bantuan berupa alat-alat perang, pasukan, dan tenaga ahli seperti pelatih kuda dan para insinyur yang ahli membuat benteng serta kapal perang.
+                    Kerajaan Aceh kemudian mendapat bantuan Sultan Salim II dari Kekaisaran Ottoman berupa 15 kapal induk, 2 kapal perang, senjata, dan tenaga ahli seperti pembuat serta penembak meriam. Selain itu, Turki juga mengajarkan rakyat Aceh untuk membuat meriam sendiri. Bantuan ini tidak hanya bersifat militer, tapi juga mentransfer keahlian. Armada Ottoman yang pertama tiba membawa sekitar 300 pasukan multinasional dan 200 pelaut. Sayangnya, keberuntungan tidak banyak memihak Aceh, karena beberapa bantuan dari Kekaisaran Ottoman dialihkan ke Yaman yang mengalami pemberontakan.
+                    <br><br>Pada 1620, Aceh memiliki 2.000 meriam yang sebagian berasal dari Turki dan sebagian buatan lokal. Berbekal dukungan ini, Aceh melancarkan beberapa serangan ke Malaka (1568–1577), dan kembali menyerang saat dipimpin Sultan Iskandar Muda.
+                    Meskipun mendapat bantuan dari Kekaisaran Ottoman, Kerajaan Aceh tidak berhasil mengalahkan Portugis di Malaka. Serangan-serangan Aceh dari 1560-an hingga 1570-an, termasuk ekspedisi besar pada 1615 di bawah Sultan Iskandar Muda, gagal menggoyahkan kekuasaan Portugis dan justru menimbulkan kerugian besar.
+                    Konflik internal kerajaan dan munculnya kekuatan baru seperti VOC dan EIC membuat fokus Aceh terhadap Portugis menurun. Walaupun sempat diajak bersatu oleh VOC, Aceh menolak. Akhirnya, Portugis baru terusir dari Malaka pada 1641 oleh VOC, bukan oleh Aceh.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalMasaKejayaan" tabindex="-1" aria-labelledby="modalMasaKejayaanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalMasaKejayaanLabel">Masa Kejayaan Kerajaan Aceh</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Masa kejayaan Kerajaan Aceh terjadi pada abad ke-17 di bawah pemerintahan Sultan Iskandar Muda. Sultan Iskandar Muda adalah salah satu penguasa paling berpengaruh dalam sejarah Aceh. Ia mampu memperluas wilayah kekuasaan Kerajaan Aceh hingga mencapai pesisir Sumatera, Semenanjung Malaya, dan sebagian Sumatra Barat. Wilayah ini terdiri dari Aru, Kedah, Pahang, Perlak, dan Indragiri. Selama masa kejayaannya, Aceh menjadi pusat perdagangan, kebudayaan, dan agama Islam di wilayah tersebut.
+                    Kerajaan Aceh juga menjadi bandar transit yang menghubungkan dengan pedagang Islam di barat. Tak hanya itu, Sultan Iskandar Muda juga melanjutkan perjuangan Aceh dengan melakukan penyerangan terhadap Portugis dan Kerajaan Johor di Semenanjung Malaya. Tujuannya tidak lain adalah supaya dapat menguasai jalur perdagangan di Selat Malaka dan menguasai wilayah-wilayah penghasil lada.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalBandarPerdagangan" tabindex="-1" aria-labelledby="modalBandarPerdaganganLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalBandarPerdaganganLabel">Aceh menjadi Bandar Perdagangan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Kedatangan Portugis ke Malaka pada tahun 1511 menandai awal perubahan besar dalam peta perdagangan dan politik di Asia Tenggara. Keberhasilan Portugis merebut Malaka dari tangan Kesultanan Malaka bukan hanya berdampak pada kekuasaan lokal, tetapi juga mengubah arus perdagangan internasional yang sebelumnya r sd menjadikan Malaka sebagai salah satu pelabuhan tersibuk dan paling strategis di kawasan. Sebelum dikuasai Portugis, Malaka telah menjadi pusat pertemuan pedagang dari berbagai belahan dunia, termasuk dari Arab, India, Tiongkok, dan wilayah Nusantara lainnya.
+                    Namun, kebijakan monopoli dagang yang diterapkan oleh Portugis mengubah kondisi tersebut secara drastis. Pedagang Muslim, yang selama ini memegang peranan penting dalam perdagangan di Malaka, mulai dihambat bahkan dilarang berdagang oleh pemerintah kolonial Portugis. Akibatnya, mereka mencari pelabuhan alternatif yang lebih aman dan terbuka terhadap kegiatan dagang mereka. Salah satu wilayah yang kemudian menjadi tujuan utama para pedagang tersebut adalah Kesultanan Aceh Darussalam. <br><br>
+                    Aceh, yang terletak di ujung utara Pulau Sumatera dan berada dekat dengan jalur strategis Selat Malaka, segera berkembang menjadi pusat perdagangan yang baru. Kota pelabuhannya ramai dikunjungi oleh pedagang dari India, Persia, Arab, bahkan dari Eropa. Komoditas utama yang diperdagangkan di Aceh adalah rempah-rempah, terutama lada, yang sangat diminati di pasar internasional. Perdagangan yang semakin berkembang ini membawa kemakmuran ekonomi bagi Kesultanan Aceh dan memperkuat kekuasaannya di wilayah tersebut.
+                    Selain sebagai pusat perdagangan, Aceh juga mengalami kemajuan pesat dalam bidang keagamaan. Kesultanan ini menjadi pusat penyebaran Islam yang penting di kawasan Asia Tenggara. Aktivitas perdagangan yang padat mempercepat proses Islamisasi di wilayah-wilayah sekitar, menjadikan Aceh sebagai salah satu kekuatan Islam terkemuka pada masanya.<br><br>
+                    Dengan demikian, meskipun jatuhnya Malaka ke tangan Portugis merupakan kemunduran bagi perdagangan Muslim di kawasan itu, peristiwa tersebut justru membuka peluang bagi Aceh untuk tumbuh dan berkembang. Aceh tidak hanya berhasil menggantikan peran Malaka sebagai pusat perdagangan dan ekonomi, tetapi juga menjadi pusat keagamaan dan budaya yang disegani di Asia Tenggara.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalKehidupanPolitik" tabindex="-1" aria-labelledby="modalKehidupanPolitik" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalKehidupanPolitikLabel">Kehidupan Politik Aceh</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-gray-700 leading-relaxed mb-6">Kesultanan Demak memainkan peran penting dalam perkembangan politik dan agama di Jawa:</p>
+            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-8">
+                <li>**Pusat Penyebaran Islam:** Demak menjadi pusat dakwah Islam pertama di Jawa, melanjutkan peran Wali Songo dalam Islamisasi Nusantara.</li>
+                <li>**Sistem Monarki:** Menganut sistem pemerintahan kerajaan dengan sultan sebagai pemimpin tertinggi yang dibantu oleh para adipati.</li>
+                <li>**Sikap Anti-Portugis:** Demak bersikap tegas terhadap Portugis yang menguasai Malaka, bahkan melakukan serangan militer pada 1513.</li>
+                <li>**Peran Wali Songo:** Para wali tidak hanya sebagai penyebar agama tetapi juga penasihat politik sultan dalam mengambil keputusan strategis.</li>
+            </ul>
+            <p class="text-xs text-gray-500 mt-4 mb-8">(Sumber: Buku Cetak)</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center profile-card" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="Image/Ali.jpg" alt="Raden Patah" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-blue-200">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sultan Ali Mughayat Syah</h3>
+                    <p class="text-gray-700 text-sm">
+                        Ali Mughayat Syah adalah raja pertama Kerajaan Aceh. Ia memerintah dari tahun 1514-1528. Di bawah kekuasaannya, Kerajaan Aceh melakukan perluasan ke beberapa daerah yang berada di wilayah Sumatra Utara, seperti daerah Daya dan Pasai. Bahkan, ia mengadakan serangan terhadap kedudukan Portugis di Malaka serta menyerang Kerajaan Aru. Meski bukan penguasa pertama di Aceh, ia dianggap sebagai pendiri Kesultanan Aceh Darussalam karena berhasil menyatukan kerajaan-kerajaan kecil di bawah payung kekuasaannya.
+                        Pada awal pemerintahannya, wilayah Kerajaan Aceh semakin berkembang hingga mencakup Daya, Deli, Pedir, Pasai, dan Aru. Sultan Ali Mughayat Syah juga melakukan perlawanan terhadap kedudukan Bangsa Portugis di Malaka. Kerajaan Aceh didirikan oleh Sultan Ali Mughayat Syah pada 1496 M. Akan tetapi, kerajaan ini baru mendapatkan kedaulatan penuh pada awal abad ke-16. <br><br>
+
+                        Sultan Ali Mughayat Syah adalah panglima perang dan putra dari Syamsu Syah, keturunan Dinasti Meukuta Alam yang berkuasa di Aceh kala itu. Awal pemerintahan Sultan Ali Mughayat Syah Kerajaan Aceh didirikan oleh Sultan Ali Mughayat Syah pada 1496 M. Akan tetapi, kerajaan ini baru mendapatkan kedaulatan penuh pada awal abad ke-16.  Sultan Ali MughayatSyah adalah panglima perang dan putra dari Syamsu Syah, keturunan Dinasti Meukuta Alam yang berkuasa di Aceh kala itu. <br><br>
+
+                        Ketika perang Portugis di sekitar Selat Malaka semakin besar, Sultan Ali Mughayat Syah mulai menyusun kekuatan dengan menyatukan kerajaan-kerajaan kecil di bawah payung Kerajaan Aceh. Selain itu, ia juga membentuk angkatan darat dan laut yang kuat demi membangun kerajaan yang kokoh. Setelah mendeklarasikan berdirinya Kerajaan Aceh Darussalam, Sultan Ali Mughayat Syah meletakkan dasar-dasar politik luar negeri, yang isinya sebagai berikut: 
+                        Mencukupi kebutuhan sendiri, sehingga tidak bergantung pada pihak luar
+                        Menjalin persahabatan yang lebih erat dengan kerajaan-kerajaan Islam di nusantara 
+                        Bersikap waspada terhadap negara Barat Menerima bantuan tenaga ahli dari pihak luar 
+                        Menjalankan dakwah Islam ke seluruh nusantara
+                        Sumbangan Sultan Ali Mughayat Syah yang paling besar adalah berhasil membebaskan Aceh dari upaya penjajagan Portugis. Pada 1511, bangsa Portugis telah menaklukkan Malaka. Akan tetapi, ambisi mereka untuk menduduki Aceh tidak dapat terwujud dengan mudah.
+                        Seperti diketahui, Sultan Ali Mughayat Syah adalah salah satu tokoh yang berhasil mengusir Portugis dari Aceh. Kontak langsung pertama antara Aceh dan Portugis terjadi pada 1519, ketika Gaspar da Costa yang tiba dengan kapalnya ditangkap oleh penduduk setempat. Tahun berikutnya, Sultan Ali Mughayat Syah mulai mengadakan serangkaian kampanye militer untuk mendominasi wilayah utara Sumatera. 
+
+                        Dalam usahanya melawan Portugis, Sultan Ali Mughayat Syah didampingi oleh Raja Ibrahim, adik sekaligus tangan kanannya yang paling berani. Raja Ibrahim lah yang memimpin serangan untuk mengusir Portugis di Daya, Pedir, dan Samudera Pasai.
+
+                        Pada 1521, armada Portugis di bawah pimpinan Jorge de Brito tiba dengan membawa 200 pasukan. Pasukan tersebut berhasil dibantai oleh Sultan Ali Mughayat Syah yang membawa sekitar 1.000 pasukan dan enam gajah. Sayangnya, perjuangan Raja Ibrahim terhenti pada 1523, karena gugur di medan perang. Kemenangan demi kemenangan itu membuat Kerajaan Aceh semakin kuat karena mendapatkan banyak barang rampasan berupa peralatan perang.
+
+                        Pada 1529, Kerajaan Aceh sebenarnya tengah mengadakan persiapan untuk menyerang Portugis di Malaka. Akan tetapi, niatan itu urung dilakukan karena Sultan Ali Mughayat Syah lebih dulu wafat pada 1530.
+                        Dari batu nisan yang ditemukan di Kandang XII, Banda Aceh, diketahui bahwa Sultan Ali Mughayat Syah wafat pada tanggal 7 Agustus. Setelah itu, takhta Kerajaan Aceh jatuh ke tangan Sultan Salahuddin, putra sulung Sultan Ali Mughayat Syah.
+
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center profile-card" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="Image/salahudin.jpg" alt="Pati Unus" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-blue-200">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sultan Salahuddin</h3>
+                    <p class="text-gray-700 text-sm">
+                        Setelah wafatnya Sultan Ali Mughayat Syah pada tahun 1528, tampuk kekuasaan Kesultanan Aceh Darussalam diwariskan kepada putranya, Sultan Salahuddin. Ia menjadi sultan kedua dalam sejarah kesultanan tersebut dan memerintah selama sembilan tahun, yaitu dari tahun 1528 hingga tahun 1537. Sayangnya, masa pemerintahan Sultan Salahuddin tidak dapat disamakan dengan kejayaan era pendahulunya, Sultan Ali Mughayat Syah. Kepemimpinan Sultan Salahuddin dinilai lemah, baik dari segi pengambilan keputusan politik maupun dalam mengelola administrasi pemerintahan. Ia kurang menunjukkan ketegasan serta kepedulian terhadap urusan negara, sehingga berbagai persoalan internal dalam kesultanan pun mulai bermunculan hingga menimbulkan keresahan di kalangan rakyat Aceh.
+
+                        Berbeda dengan ayahnya, Sultan Ali Mughayat Syah yang dikenal sebagai pemimpin visioner, strategis, dan penuh semangat dalam memperluas pengaruh Aceh di kawasan Asia Tenggara, terutama di Selat Malaka. Sultan Salahuddin justru gagal dalam mempertahankan dominasi tersebut. Lemahnya pengelolaan pemerintahan menyebabkan munculnya ketidakpuasan dari berbagai elemen masyarakat, termasuk kalangan bangsawan, para ulama, serta rakyat biasa. Stabilitas politik mulai terganggu, kekuatan militer melemah, dan kondisi ekonomi pun memburuk. Bahkan, pengaruh Aceh di wilayah-wilayah penting yang sebelumnya berhasil dikuasai mulai mengalami kemunduran yang cukup signifikan.
+
+                        Situasi ini memunculkan kekhawatiran besar akan masa depan Kesultanan Aceh. Banyak pihak mulai meragukan kemampuan Sultan Salahuddin dalam menjaga kejayaan dan mempertahankan warisan besar yang telah dibangun oleh ayahnya. Akhirnya, pada tahun 1537, Sultan Salahuddin dilengserkan dari tahtanya dan digantikan oleh saudaranya, yakni Sultan Alauddin Riayat Syah al-Kahar. Sultan Alauddin Riayat Syah mamph membawa harapan baru dengan melakukan reformasi dalam sistem pemerintahan, memperkuat struktur kekuasaan, serta memulihkan kekuatan militer dan ekonomi Aceh. Pemerintahan Sultan Alauddin Riayat Syah dikenal sukses dalam mengembalikan kejayaan Aceh layaknya seperti dulu dan memperluas pengaruhnya di kawasan sekitar kesultanan. Berdasarkan kepemimpinan Sultan Salahuddin, kisahnya dapat menjadi pelajaran penting  dalam sejarah Aceh untuk memahami arti pentingnya kepemimpinan yang tangguh, bijaksana, dan visioner demi kelangsungan dan kemajuan dalam memimpin sebuah kesultanan/kerajaan.
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center profile-card" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="Image/alaudin.jpg" alt="Sultan Trenggono" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-blue-200">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sultan Alauddin Riayat Syah</h3>
+                    <p class="text-gray-700 text-sm">
+                        Biografi Sultan Alaudin Riayat Syah adalah salah satu pemimpin yang membawa Kesultanan Aceh menuju masa kejayaan. Sultan Alaudin Riayat Syah dikenal dengan beberapa gelar, termasuk Sultan Alauddin Riayat Syah al-Kahar, yang mencerminkan kebesarannya sebagai pemimpin.
+
+                        Ia memerintah pada pertengahan abad ke-16, masa di mana Kesultanan Aceh mencapai puncak kekuatan politik, ekonomi, dan militer. Di bawah kepemimpinan Sultan Alaudin Riayat Syah, Aceh berhasil memperluas pengaruhnya hingga ke wilayah Semenanjung Malaya dan sebagian Sumatra. Ia juga dikenal sebagai seorang pemimpin yang tangguh dalam menghadapi kekuatan kolonial Portugis yang saat itu mendominasi perdagangan di kawasan. Salah satu prestasi besarnya adalah keberhasilan mempertahankan kedaulatan Aceh dalam menghadapi ancaman Portugis, termasuk dalam pertempuran di Selat Malaka.
+
+                        Sultan Alauddin Riayat Syah al-Kahar adalah salah satu tokoh penting dalam sejarah Kesultanan Aceh yang membawa kerajaan tersebut menuju masa kejayaannya. Ia memerintah pada pertengahan abad ke-16, tepatnya dari tahun 1537 hingga 1571. Masa pemerintahannya dikenal sebagai salah satu periode paling gemilang dalam sejarah Aceh, baik dari segi politik, militer, maupun ekonomi. Gelarnya yang lengkap, Sultan Alauddin Riayat Syah al-Kahar, mencerminkan keagungan dan kekuatan kepemimpinannya.
+
+                        Di bawah kepemimpinannya, Kesultanan Aceh mengalami perluasan wilayah yang signifikan, mencakup sebagian besar wilayah Sumatra utara hingga ke Semenanjung Malaya. Sultan Alauddin tidak hanya dikenal sebagai pemimpin yang bijak, tetapi juga sebagai panglima perang yang tangguh. Ia memimpin berbagai ekspedisi militer, termasuk serangan terhadap Malaka yang saat itu berada di bawah kekuasaan Portugis. Tujuannya adalah untuk merebut kembali kendali atas jalur perdagangan di Selat Malaka, yang merupakan salah satu jalur tersibuk dan paling strategis di Asia Tenggara.
+
+                        Sultan Alauddin juga menjalin hubungan diplomatik dengan kekuatan besar lain seperti Kesultanan Utsmaniyah di Turki, yang kemudian membantu memperkuat posisi Aceh sebagai kekuatan Islam yang berpengaruh di kawasan. Ia dikenal sangat menentang dominasi kolonial Portugis yang ingin menguasai perdagangan rempah-rempah di Asia Tenggara. Berkat ketegasan dan kepemimpinannya, Aceh berhasil mempertahankan kedaulatannya dan bahkan menjadi pesaing utama Portugis di wilayah tersebut.
+
+                        Warisan Sultan Alauddin Riayat Syah al-Kahar terus dikenang sebagai simbol kejayaan dan keteguhan dalam mempertahankan identitas, kemerdekaan, dan martabat bangsa Aceh di tengah ancaman kolonialisme.
+                    </p>
+                </div>
+                 <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center profile-card" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="Image/WhatsApp Image 2025-05-29 at 21.49.32_7f4e7802.jpg" alt="Sultan Trenggono" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-blue-200">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sultan Iskandar Muda</h3>
+                    <p class="text-gray-700 text-sm">
+                        Sultan Iskandar Muda lahir pada tahun 1590 di Bandar Aceh Darussalam dengan nama asli Perkasa Alam. Ia merupakan keturunan Sultan Alauddin al-Qahhar, dan anak dari Sultan Mansyur Syah serta Putri Raja Indra Bangsa. Sejak kecil, ia dibesarkan di lingkungan istana Kesultanan Aceh.
+                        Iskandar Muda menikah dengan Putroe Phang, putri yang berasal dari Kesultanan Pahang di Malaysia. Untuk menghibur istrinya yang rindu kampung halaman, ia membangun Gunongan. Dari pernikahan ini, mereka memiliki dua anak, yaitu Sultanah Safiatuddin dan Meurah Pupok.
+                        Pada tahun 1607, Sultan Iskandar Muda naik takhta dan membawa Kesultanan Aceh mencapai masa kejayaan. Ia melancarkan ekspedisi militer ke berbagai wilayah, seperti Deli (1612), Johor (1613), Bintan (1614), Pahang (1618), Kedah (1619), dan Nias (1624–1625). Kekuasaan Aceh meluas di sebagian besar wilayah pesisir timur dan barat Sumatera. Kutaraja (kini Banda Aceh) yang menjadi pelabuhan penting dan pusat perdagangan lada dunia pada abad ke-17, tempat bersandarnya kapal dagang dari berbagai negara.
+                        Untuk menghadapi ancaman Portugis yang menguasai Malaka sejak 1511, Sultan Iskandar Muda memperkuat armada laut dan darat Aceh. Ia melatih tentaranya sejak muda dan membangun kekuatan militer yang tangguh. Konflik bersenjata sangat sering terjadi antara Aceh dan Portugis, terutama di Selat Malaka, di mana kapal-kapal Portugis sering diserang oleh armada Aceh.
+                        Setelah bertahun-tahun memimpin perjuangan dan memperluas wilayah, kesehatan Sultan mulai menurun. Ia wafat pada 27 Desember 1636 dalam usia 43 tahun dan dimakamkan di Kompleks Pemakaman Sultan Aceh, Kandang XII, Banda Aceh.
+                        Atas jasa-jasanya, Sultan Iskandar Muda dianugerahi gelar Pahlawan Nasional. Namanya sekarang diabadikan sebagai nama bandara di Aceh serta digunakan untuk nama jalan di berbagai kota Indonesia. Ia dikenang sebagai sultan terbesar dan paling terkenal dalam sejarah Kerajaan Aceh. Dia bahkan sanggup membawa Kesultanan Aceh mencapai puncak kejayaan di Sumatra sera di Malaka. Sepeninggalnya, Kesultanan Aceh dipimpin oleh Sultan Iskandar Thani, namun tidak mampu mengembalikan kejayaan seperti masa pemerintahannya.
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-xl shadow-md p-6 text-center profile-card" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="Image/thani.jpg" alt="Sultan Trenggono" class="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-blue-200">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sultan Iskandar Thani</h3>
+                    <p class="text-gray-700 text-sm">
+                        Sultan Iskandar Thani Alauddin Mughayat Syah, bernama asli Raja Husein, adalah Sultan Aceh ke-13. Ia merupakan putra Sultan Ahmad Shah II dari Pahang. Pada tahun 1617, Aceh di bawah Sultan Iskandar Muda menyerang Pahang dan membawa keluarga kerajaan Pahang ke Aceh, termasuk Raja Husein, Putri Kamaliah (Putroe Phang), dan Bendahara Tun Sri Lanang. Raja Husein kemudian dinikahkan dengan putri Sultan Iskandar Muda, Sri Ratu Safiatuddin Tajul Alam. Setelah Sultan Iskandar Muda wafat pada 1636, Raja Husein naik takhta sebagai Sultan Aceh.
+                        Berbeda dengan pendahulunya yang agresif, Sultan Iskandar Thani lebih fokus pada pembangunan sosial dan keagamaan. Ia mendukung pengembangan pendidikan Islam dan mendekatkan diri pada ulama, seperti Syaikh Nuruddin ar-Raniry. Dua karya penting dari ulama tersebut, Surat al-Mustaqin dan Babun Nikah, bahkan dikirimkan kepada Sultan Kedah sebagai bagian dari penyebaran Islam.
+                        Meskipun fokus pada keilmuan, pendekatan politik Sultan Iskandar Thani dianggap terlalu lunak. Pada 1636, Pahang menerima naungan Aceh secara damai. Namun, Johor yang pernah menguasai Pahang merasa terancam dan pada 1638, bersama VOC dari Batavia, menyerang Pahang. Sultan Aceh hanya mengirim peringatan kepada VOC dan tidak memberi tanggapan langsung kepada Sultan Johor. Bahkan saat terjadi kekacauan, Iskandar Thani hanya mengirim rombongan untuk memasang batu nisan di makam keluarganya di Pahang.
+                        Ketidaktegasannya berlanjut saat VOC dan Johor menyerang Malaka. Meski Belanda dan sekutunya berhasil menaklukkan Malaka pada Januari 1641, Aceh tidak memberikan reaksi militer. Sebulan setelah jatuhnya Malaka, Sultan Iskandar Thani wafat pada 15 Februari 1641.
+                        Sepeninggalnya, Aceh dipimpin oleh para ratu selama 59 tahun, dimulai dari Sultanah Tajul Alam Safiatuddin Syah. Masa ini ditandai oleh kemunduran Aceh di bidang politik, ekonomi, dan militer. Meskipun begitu, kehidupan intelektual, budaya, dan seni tetap berkembang. Sultan Iskandar Thani dikenang sebagai pemimpin yang berpendidikan dan beragama, namun kurang mampu mempertahankan kekuatan militer dan pengaruh politik Aceh seperti masa kejayaan Sultan Iskandar Muda sebelumnya. Pemerintahannya menandai awal dari penurunan kekuasaan Kesultanan Aceh di kawasan Melayu.
+                    </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalKeruntuhanAceh" tabindex="-1" aria-labelledby="modalKeruntuhanAcehLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalKeruntuhanAcehLabel">Keruntuhan Kerajaan Aceh</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Pada tahun 1641, atau sepeninggalan Sultan Iskandar Thani, Kerajaan Aceh mengalami kemunduran. Faktor dari kejatuhan kerajaan aceh paling utama adalah adanya perebutan kekuasaan di antara para pewaris takhta. Selain itu, kekuasaan Belanda di Pulau Sumatra dan Selat Malaka semakin menguat pada masa pemerintahan raja terakhir kerajaan Aceh, Belanda terus melancarkan perang terhadap aceh. Setelah melakukan peperangan selama 40 tahun, kesultanan aceh akhirnya jatuh ke pangkuan kolonial Belanda.
+                    <br><br>kerajaan aceh mulai mengalami keruntuhan setelah wafatnya Sultan Iskandar Muda tahun 1636. Keruntuhan yang terjadi banyak dipengaruhi oleh perebutan kekuasaan. Selain itu, Kerajaan Aceh juga didukung oleh beberapa faktor di bawah ini :
+                    <ul>
+                        <li>1. tidak ada pemimpin yang cakap setelah Sultan Iskandar Muda wafat</li>
+                        <li>2. terjadi perpecahan antara kaum bangsawan kerajaan dengan kaum agama</li>
+                        <li>3. banyak negeri yang sudah ditaklukan memutuskan untuk memisahkan diri, seperti Pahang, Johong, Siak, Perlak, dan Minangkabau.</li>
+                    </ul>
+                    <br><br>
+                    Akibat dari kondisi kerajaan Aceh yang semakin melemah, Belanda pun masuk dan memberi banyak pengaruh. Pihak Belanda mulai melakukan invasi melalui Perang Sabi sejak tanggal 26 Maret 1873 hingga 30 tahun kemudian. Banyak sekali korban jiwa akibat kejadian tersebut. Selain itu, pemimpin terkahir Kerjaan Aceh, yaitu Sultan Muhammad Daud Syah, juga tidak mampu lagi menaungi Aceh. Maka dari itu, beliau mengumumkN pengakuan kedaulatan Belanda di Aceh.
+                    Pada akhirnya, wilayah Kerajaan Aceh menjadi bagian Hindia Timur Belanda atau Pemerintahan Kolonial HIndia Belanda.<br><br>
+                    Beberapa faktor penyebab runtuhnya Kerajaan Aceh :
+                    <ul>
+                        <li>
+                            <b>1. konflik internal bangsawan</b>
+                            <br>
+                            salah satu penyebab utama runtuhnya kerajaan aceh di kalangan bangsawan setelah kematian Sultan Iskandar Muda tahun 1636. Perebutan kekuasaan di antara para bangsawan mengakibatkan lemahnya otoritas pusat dan melemahnya kerajaan.
+                        </li>
+                        <li>
+                            <b>2. perang saudara</b>
+                            <br>
+                            pada masa pemerintahan Sultan Alauddin Johan Syah, kerajaan aceh menghadapi perang saudara yang merusak. konflik ini menyebabkan keruntuhan lebih lanjut dalam struktur pemerintahan Aceh dan menghabiskan sumber daya yang berharga yang seharusnya digunakan untuk melindungi kerajaan dari ancaman luar.
+                        </li>
+                        <li>
+                            <b>3. Trakat Sumatera</b>
+                            <br>
+                            tahun 1871, Trakat Sumatera dibuat yang menghasilkan perubahan signifikan dalam hubungan aceh dengan inggris. Trakat ini membuat inggrid tidak ingin lagi melindungi kerajaan aceh dari invasi bangsa eropa lainnya meskipun sebelumnya telah ada perjanjian berdasarkan trakat landon tahun 1824. kehilangan dukungan inggris tersebut membuka jalan invasi yang dilakukan oleh bangsa belanda
+                        </li>
+                        <li>
+                            <b>4. Belanda menginvasi Aceh</b>
+                            <br>
+                            tahun 1873, Belanda melancarkan invasi besar-besaran ke Aceh yang dimulai dengan serangan terhadap ibu kota kerajaan, Banda Aceh. Perang aceh melawan Belanda yang terjadi selama beberapa dekade adalah konflik yang sengit dan berdarah. Pada akhirnya, Belanda berhasil menguasai Aceh tahun 1904 dan menandai berakhirnya Kerajaan Aceh.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12 rounded-t-lg">
+        <div class="container mx-auto text-center px-4">
+            <p class="text-lg font-semibold mb-4">Aceh Legacy Chronicles</p>
+            <p class="text-sm mb-4">&copy; 2023 Hak Cipta Dilindungi. Didesain dengan semangat untuk sejarah.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10Z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.002 3.797.048.843.04 1.15.138 1.51.298a2.432 2.432 0 0 1 1.714 1.714c.16.36.258.667.298 1.51.046 1.013.048 1.372.048 3.797s-.002 2.784-.048 3.797c-.04.843-.138 1.15-.298 1.51a2.432 2.432 0 0 1-1.714 1.714c-.36.16-.667.258-1.51.298-.046 1.013-.048 1.372-.048 3.797s.002 2.784.048 3.797c.04.843.138 1.15.298 1.51a2.432 2.432 0 0 1-1.714 1.714c-.36.16-.667.258-1.51.298-1.013.046-1.372.048-3.797.048s-2.784-.002-3.797-.048c-.843-.04-1.15-.138-1.51-.298a2.432 2.432 0 0 1-1.714-1.714c-.16-.36-.258-.667-.298-1.51-.046-1.013-.048-1.372-.048-3.797s.002-2.784.048-3.797c.04-.843.138-1.15.298-1.51A2.432 2.432 0 0 1 3.29 5.232c-.16-.36-.258-.667-.298-1.51C2.944 2.705 2.942 2.346 2.942 2h9.373ZM12 4.807a7.193 7.193 0 1 0 0 14.386 7.193 7.193 0 0 0 0-14.386ZM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm6.807-8.718a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12.488 2.544a.75.75 0 0 0-1.071-.056L3.91 8.79a.75.75 0 0 0-.215.707l1.62 7.394a.75.75 0 0 0 .866.522l5.053-1.318 3.99-3.99a.75.75 0 0 1 1.06 0l.969.969a.75.75 0 0 0 1.06 0l2.034-2.034a.75.75 0 0 0 0-1.06L12.488 2.544Z" />
+                        <path d="M19.5 16.25a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0ZM12.75 18a.75.75 0 0 0-1.5 0v.75H10.5a.75.75 0 0 0 0 1.5h.75v.75a.75.75 0 0 0 1.5 0v-.75h.75a.75.75 0 0 0 0-1.5h-.75V18Z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>

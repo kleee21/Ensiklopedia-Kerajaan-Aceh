@@ -21,6 +21,33 @@
         .nav-link[href="galeri.html"] {
             @apply text-blue-600 font-semibold;
         }
+        /* START ANIMASI HAMBURGER MENU */
+        /* Initial state for mobile menu (closed) */
+        #mobile-menu.mobile-menu-closed {
+            opacity: 0;
+            max-height: 0; /* Menggunakan max-height untuk animasi slide */
+            overflow: hidden; /* Penting untuk menyembunyikan konten yang meluap */
+            transform: translateY(-10px); /* Mulai sedikit di atas untuk efek slide */
+            pointer-events: none; /* Nonaktifkan interaksi saat tertutup */
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        /* State for mobile menu when open */
+        #mobile-menu.open {
+            opacity: 1;
+            max-height: 500px; /* Sesuaikan nilai ini sesuai tinggi maksimum konten menu Anda */
+            transform: translateY(0);
+            pointer-events: auto; /* Aktifkan interaksi saat terbuka */
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        /* Pastikan header tetap di atas menu mobile saat dibuka */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50; /* Header harus lebih tinggi dari mobile menu agar tidak tertutup */
+        }
+        /* END ANIMASI HAMBURGER MENU */
     </style>
 </head>
 <body class="text-gray-800">
@@ -56,7 +83,7 @@
             </ul>
         </nav>
 
-        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg mt-2 rounded-lg">
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg mt-2 rounded-lg mobile-menu-closed">
             <ul class="flex flex-col space-y-2 p-4">
                 <li><a href="index.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
                 <li><a href="sejarah.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sejarah</a></li>

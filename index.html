@@ -10,166 +10,194 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         /* Terapkan font Inter secara global dan pastikan pengguliran yang mulus */
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            background-image: url(Image/1.webp); 
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
-            background-size: cover;
-        }
-        /* Aktifkan tautan navigasi yang benar untuk halaman ini */
-        .nav-link[href="index.html"] {
-            @apply text-blue-600 font-semibold;
-        }
-        /* Gambar latar belakang hero kustom dengan overlay */
-        .hero-background {
-            background-image: url('Image/IB-10-1.png'); /* Gambar placeholder */
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-        .hero-background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)); /* Overlay lebih gelap */
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-        /* Efek hover kartu artikel kustom */
-        .article-card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    background-image: url(Image/1.webp);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+/* Aktifkan tautan navigasi yang benar untuk halaman ini */
+.nav-link[href="index.html"] {
+    @apply text-blue-600 font-semibold;
+}
+/* Gambar latar belakang hero kustom dengan overlay */
+.hero-background {
+    background-image: url('Image/IB-10-1.png'); /* Gambar placeholder */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)); /* Overlay lebih gelap */
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+/* Efek hover kartu artikel kustom */
+.article-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
-        /* Adjust carousel-container and slide styles for flexibility */
-        .carousel-container {
-            height: auto !important; /* Allow height to be determined by content */
-        }
-        .carousel-slide {
-            height: auto; /* Allow height to be determined by content */
-            padding-bottom: 3rem; /* Add some padding to account for dots */
-        }
-        .carousel-slide img {
-            max-width: 100%; /* Ensure images don't overflow */
-            height: 250px; /* Set a fixed height for images or remove for full flexibility */
-            object-fit: cover;
-        }
-        .carousel-dots {
-            position: absolute; /* Position dots absolutely within the container */
-            bottom: 1rem; /* Adjust as needed */
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            z-index: 10; /* Ensure dots are above slides */
-        }
-        /* Carousel specific styles for responsiveness */
-        .carousel-container {
-            position: relative;
-            width: 100%; /* Make it full width of its parent */
-            max-width: 4xl; /* Tailwind max-width class */
-            margin-left: auto;
-            margin-right: auto;
-            overflow: hidden;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-        }
+/* Adjust carousel-container and slide styles for flexibility */
+.carousel-container {
+    height: auto !important; /* Allow height to be determined by content */
+}
+.carousel-slide {
+    height: auto; /* Allow height to be determined by content */
+    padding-bottom: 3rem; /* Add some padding to account for dots */
+}
+.carousel-slide img {
+    max-width: 100%; /* Ensure images don't overflow */
+    height: 250px; /* Set a fixed height for images or remove for full flexibility */
+    object-fit: cover;
+}
+.carousel-dots {
+    position: absolute; /* Position dots absolutely within the container */
+    bottom: 1rem; /* Adjust as needed */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 10; /* Ensure dots are above slides */
+}
+/* Carousel specific styles for responsiveness */
+.carousel-container {
+    position: relative;
+    width: 100%; /* Make it full width of its parent */
+    max-width: 4xl; /* Tailwind max-width class */
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+}
 
-        .carousel-slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
 
-        .carousel-slide {
-            flex: 0 0 100%; /* Each slide takes full width of the container */
-            width: 100%; /* Ensure full width */
-            padding: 2rem; /* p-8 */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box; /* Include padding in the width calculation */
-            text-align: center; /* Center text within the slide */
-        }
+.carousel-slide {
+    flex: 0 0 100%; /* Each slide takes full width of the container */
+    width: 100%; /* Ensure full width */
+    padding: 2rem; /* p-8 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Include padding in the width calculation */
+    text-align: center; /* Center text within the slide */
+}
 
-        .carousel-slide img {
-            width: 100%; /* Image takes full width of the slide */
-            height: 250px; /* Fixed height for consistency */
-            object-fit: cover;
-            border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
-            margin-bottom: 1rem; /* mb-4 */
+.carousel-slide img {
+    width: 100%; /* Image takes full width of the slide */
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    margin-bottom: 1rem; /* mb-4 */
 
-            /* Responsive image height */
-            @media (min-width: 768px) { /* md breakpoint */
-                height: 350px; /* Taller on medium screens and up */
-            }
-            @media (min-width: 1024px) { /* lg breakpoint */
-                height: 450px; /* Even taller on large screens and up */
-            }
-        }
+    /* Responsive image height */
+    @media (min-width: 768px) { /* md breakpoint */
+        height: 350px; /* Taller on medium screens and up */
+    }
+    @media (min-width: 1024px) { /* lg breakpoint */
+        height: 450px; /* Even taller on large screens and up */
+    }
+}
 
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            z-index: 10;
-            font-size: 1.5rem;
-            border-radius: 0.25rem;
-            user-select: none;
-            transition: background-color 0.3s ease;
-        }
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    border-radius: 0.25rem;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
 
-        .carousel-arrow:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
+.carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
 
-        .carousel-arrow.left {
-            left: 1rem;
-        }
+.carousel-arrow.left {
+    left: 1rem;
+}
 
-        .carousel-arrow.right {
-            right: 1rem;
-        }
+.carousel-arrow.right {
+    right: 1rem;
+}
 
-        .carousel-dots {
-            position: absolute;
-            bottom: 1rem;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            z-index: 10;
-        }
+.carousel-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    z-index: 10;
+}
 
-        .dot {
-            width: 10px;
-            height: 10px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-        .dot.active {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+.dot.active {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* START ANIMASI HAMBURGER MENU */
+/* Initial state for mobile menu (closed) */
+#mobile-menu.mobile-menu-closed {
+    opacity: 0;
+    max-height: 0; /* Menggunakan max-height untuk animasi slide */
+    overflow: hidden; /* Penting untuk menyembunyikan konten yang meluap */
+    transform: translateY(-10px); /* Mulai sedikit di atas untuk efek slide */
+    pointer-events: none; /* Nonaktifkan interaksi saat tertutup */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* State for mobile menu when open */
+#mobile-menu.open {
+    opacity: 1;
+    max-height: 500px; /* Sesuaikan nilai ini sesuai tinggi maksimum konten menu Anda */
+    transform: translateY(0);
+    pointer-events: auto; /* Aktifkan interaksi saat terbuka */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* Pastikan header tetap di atas menu mobile saat dibuka */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50; /* Header harus lebih tinggi dari mobile menu agar tidak tertutup */
+}
+/* END ANIMASI HAMBURGER MENU */
     </style>
 </head>
 <body class="text-gray-800">
@@ -195,7 +223,7 @@
             </ul>
         </nav>
 
-        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg mt-2 rounded-lg">
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg mt-2 rounded-lg mobile-menu-closed">
             <ul class="flex flex-col space-y-2 p-4">
                 <li><a href="index.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
                 <li><a href="sejarah.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Sejarah</a></li>
@@ -205,6 +233,7 @@
             </ul>
         </div>
     </header>
+
 
       <!-- Background Layers -->
   <div id="upperContainer">

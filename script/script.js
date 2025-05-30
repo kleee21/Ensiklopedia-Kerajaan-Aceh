@@ -1,9 +1,3 @@
-/*
-    script.js
-    File ini menangani elemen interaktif umum untuk semua halaman, seperti menu seluler,
-    efek navbar saat menggulir, penyorotan tautan aktif, inisialisasi AOS, dan carousel.
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -11,13 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header'); // Pilih elemen header
 
     // --- Toggle Menu Seluler ---
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden'); // Toggle visibilitas menu seluler
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+        // Toggle class 'open' dan 'mobile-menu-closed'
+        mobileMenu.classList.toggle('open');
+        mobileMenu.classList.toggle('mobile-menu-closed');
+    });
+
+    // Tambahkan event listener untuk menutup menu saat tautan di dalamnya diklik
+    mobileMenu.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            mobile.classList.add('mobile-menu-closed');
         });
-    } else {
-        console.error("Tombol menu seluler atau elemen menu tidak ditemukan.");
-    }
+    });
+
+} else {
+    console.error("Tombol menu seluler atau elemen menu tidak ditemukan.");
+}
 
     // --- Penyorotan Tautan Navigasi Aktif ---
     // Bagian ini memastikan tautan yang benar disorot berdasarkan URL halaman saat ini
@@ -53,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 1000, // Durasi animasi dalam ms
-            once: true,    // Apakah animasi hanya dimainkan sekali saat menggulir ke bawah
+            once: true,     // Apakah animasi hanya dimainkan sekali saat menggulir ke bawah
             mirror: false, // Apakah elemen harus dianimasikan lagi saat menggulir ke atas
         });
     } else {
@@ -63,110 +68,118 @@ document.addEventListener('DOMContentLoaded', () => {
  // --- Carousel di Halaman Beranda ---
  const carouselContainer = document.querySelector('.carousel-container');
  if (carouselContainer) { // Hanya jalankan kode carousel jika elemen ada di halaman
-     const slidesContainer = carouselContainer.querySelector('.carousel-slides');
-     const slides = carouselContainer.querySelectorAll('.carousel-slide');
-     const prevArrow = carouselContainer.querySelector('.carousel-arrow.left');
-     const nextArrow = carouselContainer.querySelector('.carousel-arrow.right');
-     const dotsContainer = carouselContainer.querySelector('.carousel-dots');
+       const slidesContainer = carouselContainer.querySelector('.carousel-slides');
+       const slides = carouselContainer.querySelectorAll('.carousel-slide');
+       const prevArrow = carouselContainer.querySelector('.carousel-arrow.left');
+       const nextArrow = carouselContainer.querySelector('.carousel-arrow.right');
+       const dotsContainer = carouselContainer.querySelector('.carousel-dots');
 
-     let currentIndex = 0;
-     let autoSlideInterval;
+       let currentIndex = 0;
+       let autoSlideInterval;
 
-     // Clear existing dots (if any, for robustness)
-     dotsContainer.innerHTML = '';
+       // Clear existing dots (if any, for robustness)
+       dotsContainer.innerHTML = '';
 
-     // Buat dot navigasi
-     slides.forEach((_, index) => {
-         const dot = document.createElement('div');
-         dot.classList.add('carousel-dot');
-         if (index === 0) dot.classList.add('active');
-         dot.addEventListener('click', () => {
-             goToSlide(index);
-             resetAutoSlide();
-         });
-         dotsContainer.appendChild(dot);
-     });
+       // Buat dot navigasi
+       slides.forEach((_, index) => {
+           const dot = document.createElement('div');
+           dot.classList.add('carousel-dot');
+           if (index === 0) dot.classList.add('active');
+           dot.addEventListener('click', () => {
+               goToSlide(index);
+               resetAutoSlide();
+           });
+           dotsContainer.appendChild(dot);
+       });
 
-     const dots = dotsContainer.querySelectorAll('.carousel-dot');
+       const dots = dotsContainer.querySelectorAll('.carousel-dot');
 
-     const goToSlide = (index) => {
-         if (index < 0) {
-             currentIndex = slides.length - 1;
-         } else if (index >= slides.length) {
-             currentIndex = 0;
-         } else {
-             currentIndex = index;
-         }
-         slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+       const goToSlide = (index) => {
+           if (index < 0) {
+               currentIndex = slides.length - 1;
+           } else if (index >= slides.length) {
+               currentIndex = 0;
+           } else {
+               currentIndex = index;
+           }
+           slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-         // Update active dot
-         dots.forEach((dot, i) => {
-             if (i === currentIndex) {
-                 dot.classList.add('active');
-             } else {
-                 dot.classList.remove('active');
-             }
-         });
-     };
+           // Update active dot
+           dots.forEach((dot, i) => {
+               if (i === currentIndex) {
+                   dot.classList.add('active');
+               } else {
+                   dot.classList.remove('active');
+               }
+           });
+       };
 
-     const nextSlide = () => {
-         goToSlide(currentIndex + 1);
-     };
+       const nextSlide = () => {
+           goToSlide(currentIndex + 1);
+       };
 
-     const prevSlide = () => {
-         goToSlide(currentIndex - 1);
-     };
+       const prevSlide = () => {
+           goToSlide(currentIndex - 1);
+       };
 
-     prevArrow.addEventListener('click', () => {
-         prevSlide();
-         resetAutoSlide();
-     });
+       prevArrow.addEventListener('click', () => {
+           prevSlide();
+           resetAutoSlide();
+       });
 
-     nextArrow.addEventListener('click', () => {
-         nextSlide();
-         resetAutoSlide();
-     });
+       nextArrow.addEventListener('click', () => {
+           nextSlide();
+           resetAutoSlide();
+       });
 
-     const startAutoSlide = () => {
-         autoSlideInterval = setInterval(nextSlide, 5000); // Ganti slide setiap 5 detik
-     };
+       const startAutoSlide = () => {
+           autoSlideInterval = setInterval(nextSlide, 5000); // Ganti slide setiap 5 detik
+       };
 
-     const resetAutoSlide = () => {
-         clearInterval(autoSlideInterval);
-         startAutoSlide();
-     };
+       const resetAutoSlide = () => {
+           clearInterval(autoSlideInterval);
+           startAutoSlide();
+       };
 
-     // Initial slide setup
-     goToSlide(currentIndex); // Ensure the first slide is correctly displayed on load
-     startAutoSlide(); // Mulai auto-slide saat halaman dimuat
+       // Initial slide setup
+       goToSlide(currentIndex); // Ensure the first slide is correctly displayed on load
+       startAutoSlide(); // Mulai auto-slide saat halaman dimuat
  }
 });
 
-  document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.toggle-content').forEach(button => {
-            button.addEventListener('click', function() {
-                const contentContainer = this.previousElementSibling;
-                const moreContent = contentContainer.querySelector('.more-content');
-                const firstParagraph = contentContainer.querySelector('.first-paragraph');
+    // NOTE: Ada dua `document.addEventListener('DOMContentLoaded', function() { ... });` terpisah di kode Anda.
+    // Ini bukan praktik terbaik dan bisa menyebabkan masalah atau membingungkan.
+    // Sebaiknya gabungkan semua kode yang berada di dalam `DOMContentLoaded` ke dalam satu blok.
 
-                if (moreContent.classList.contains('show')) {
-                    // If content is expanded, collapse it
-                    moreContent.classList.remove('show');
-                    moreContent.classList.add('collapse');
-                    firstParagraph.style.display = 'block'; // Show first paragraph again
-                    this.textContent = 'See more';
-                } else {
-                    // If content is collapsed, expand it
-                    moreContent.classList.remove('collapse');
-                    moreContent.classList.add('show');
-                    firstParagraph.style.display = 'none'; // Hide first paragraph
-                    this.textContent = 'See less';
-                }
-            });
+    // Untuk bagian "toggle-content" dan "read-more-btn"
+    // Mari kita gabungkan ke dalam `DOMContentLoaded` yang utama.
+document.addEventListener('DOMContentLoaded', function() {
+    // Pastikan kode ini tidak menduplikasi event listener yang sudah ada di atas.
+    // Jika fungsi ini hanya untuk halaman tertentu, pertimbangkan untuk memindahkannya ke file JS yang terpisah
+    // atau membungkusnya dalam kondisi `if` untuk memastikan elemennya ada.
+
+    document.querySelectorAll('.toggle-content').forEach(button => {
+        button.addEventListener('click', function() {
+            const contentContainer = this.previousElementSibling;
+            const moreContent = contentContainer.querySelector('.more-content');
+            const firstParagraph = contentContainer.querySelector('.first-paragraph');
+
+            if (moreContent.classList.contains('show')) {
+                // If content is expanded, collapse it
+                moreContent.classList.remove('show');
+                moreContent.classList.add('collapse');
+                firstParagraph.style.display = 'block'; // Show first paragraph again
+                this.textContent = 'See more';
+            } else {
+                // If content is collapsed, expand it
+                moreContent.classList.remove('collapse');
+                moreContent.classList.add('show');
+                firstParagraph.style.display = 'none'; // Hide first paragraph
+                this.textContent = 'See less';
+            }
         });
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
     const readMoreButtons = document.querySelectorAll('.read-more-btn');
 
     readMoreButtons.forEach(button => {

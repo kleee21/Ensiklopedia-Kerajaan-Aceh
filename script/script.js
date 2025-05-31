@@ -147,50 +147,44 @@ if (mobileMenuButton && mobileMenu) {
  }
 });
 
-    // NOTE: Ada dua `document.addEventListener('DOMContentLoaded', function() { ... });` terpisah di kode Anda.
-    // Ini bukan praktik terbaik dan bisa menyebabkan masalah atau membingungkan.
-    // Sebaiknya gabungkan semua kode yang berada di dalam `DOMContentLoaded` ke dalam satu blok.
-
+   
     // Untuk bagian "toggle-content" dan "read-more-btn"
     // Mari kita gabungkan ke dalam `DOMContentLoaded` yang utama.
 document.addEventListener('DOMContentLoaded', function() {
-    // Pastikan kode ini tidak menduplikasi event listener yang sudah ada di atas.
-    // Jika fungsi ini hanya untuk halaman tertentu, pertimbangkan untuk memindahkannya ke file JS yang terpisah
-    // atau membungkusnya dalam kondisi `if` untuk memastikan elemennya ada.
-
-    document.querySelectorAll('.toggle-content').forEach(button => {
-        button.addEventListener('click', function() {
-            const contentContainer = this.previousElementSibling;
-            const moreContent = contentContainer.querySelector('.more-content');
-            const firstParagraph = contentContainer.querySelector('.first-paragraph');
-
-            if (moreContent.classList.contains('show')) {
-                // If content is expanded, collapse it
-                moreContent.classList.remove('show');
-                moreContent.classList.add('collapse');
-                firstParagraph.style.display = 'block'; // Show first paragraph again
-                this.textContent = 'See more';
-            } else {
-                // If content is collapsed, expand it
-                moreContent.classList.remove('collapse');
-                moreContent.classList.add('show');
-                firstParagraph.style.display = 'none'; // Hide first paragraph
-                this.textContent = 'See less';
-            }
-        });
+    AOS.init({
+        duration: 800,
+        once: true,
+        easing: 'ease-in-out'
     });
 
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+            mobileMenu.classList.toggle('mobile-menu-closed');
+        });
+    }
+
+    // Read More functionality
     const readMoreButtons = document.querySelectorAll('.read-more-btn');
 
     readMoreButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const moreContent = this.previousElementSibling; // This is the .more-content div
-            moreContent.classList.toggle('hidden');
+            const expandableTextContainer = this.closest('.expandable-text');
+            const shortContent = expandableTextContainer.querySelector('.short-content');
+            const moreContent = expandableTextContainer.querySelector('.more-content');
 
             if (moreContent.classList.contains('hidden')) {
-                this.textContent = 'Read More';
-            } else {
+                shortContent.classList.add('hidden'); // Hide the short content
+                moreContent.classList.remove('hidden');
                 this.textContent = 'Read Less';
+            } else {
+                shortContent.classList.remove('hidden'); // Show the short content
+                moreContent.classList.add('hidden');
+                this.textContent = 'Read More';
             }
         });
     });

@@ -22,12 +22,24 @@ body {
 .nav-link[href="index.html"] {
     @apply text-blue-600 font-semibold;
 }
-/* Gambar latar belakang hero kustom dengan overlay */
+
+#beranda-hero {
+    margin-bottom: 6rem; 
+}
+
 .hero-background {
-    background-image: url('Image/IB-10-1.png'); /* Gambar placeholder */
+    background-image: url('Image/IB-10-1.png'); 
     background-size: cover;
     background-position: center;
     position: relative;
+    width: 100%; 
+    border-radius: 0; 
+    box-shadow: none; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    min-height: 60vh; 
+    padding: 0; 
 }
 .hero-background::before {
     content: '';
@@ -42,7 +54,13 @@ body {
 .hero-content {
     position: relative;
     z-index: 2;
+    padding: 2rem; /* Add padding inside content to avoid text hitting edges */
+    text-align: center;
+    max-width: 900px; /* Limit content width for readability, center it */
+    margin: 0 auto;
+    width: 100%; /* Allows content to take full width of its max-width container */
 }
+
 /* Efek hover kartu artikel kustom */
 .article-card {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -223,6 +241,7 @@ header {
             </ul>
         </nav>
 
+       
         <div id="mobile-menu" class="md:hidden bg-white shadow-lg mt-2 rounded-lg mobile-menu-closed">
             <ul class="flex flex-col space-y-2 p-4">
                 <li><a href="index.html" class="nav-link block text-gray-700 hover:text-blue-600 transition duration-300 p-2 rounded-md">Beranda</a></li>
@@ -234,6 +253,22 @@ header {
         </div>
     </header>
 
+ <!--bekgron hero yg judul-->
+<section id="beranda-hero" class="mb-12" data-aos="fade-up">
+    <div class="hero-background flex items-center justify-center text-white">
+        <div class="hero-content text-center p-6">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                Mengungkap Sejarah kerajaan Aceh
+            </h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Jelajahi kisah-kisah menawan, tradisi kuno, dan warisan abadi Aceh.
+            </p>
+            <a href="sejarah.html" class="inline-block mt-8 px-8 py-3 bg-white text-blue-700 font-semibold rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
+                Jelajahi Lebih Lanjut
+            </a>
+        </div>
+    </div>
+</section>
 
       <!-- Background Layers -->
   <div id="upperContainer">
@@ -243,23 +278,7 @@ header {
   </div>
 
     <main class="container mx-auto mt-8 px-4 md:px-0">
-
-        <section id="beranda-hero" class="mb-12" data-aos="fade-up">
-            <div class="hero-background rounded-xl shadow-lg overflow-hidden h-96 md:h-[500px] flex items-center justify-center text-white">
-                <div class="hero-content text-center p-6">
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                        Mengungkap Sejarah kerajaan Aceh
-                    </h1>
-                    <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="200">
-                        Jelajahi kisah-kisah menawan, tradisi kuno, dan warisan abadi Aceh.
-                    </p>
-                    <a href="sejarah.html" class="inline-block mt-8 px-8 py-3 bg-white text-blue-700 font-semibold rounded-full shadow-lg hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out" data-aos="fade-up" data-aos-delay="300">
-                        Jelajahi Lebih Lanjut
-                    </a>
-                </div>
-            </div>
-        </section>
-
+        
         <section id="beranda-carousel" class="mt-16 mb-12" data-aos="fade-up">
             <h2 class="text-3xl font-bold text-center mb-10 text-gray-900">Fakta tentang kerajaan Aceh</h2>
             <div class="carousel-container relative w-full max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">

@@ -67,7 +67,7 @@
             }
 
             // Check for Ctrl+U (View Source) - though not strictly dev tools, often used for inspection
-            if (e.ctrlKey && e.key === 'U') {
+            if (e.ctrlKey && e.key === 'u') {
                 e.preventDefault();
                 showWarning();
             }

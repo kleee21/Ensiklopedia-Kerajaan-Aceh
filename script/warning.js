@@ -48,8 +48,20 @@
                 showWarning();
             }
 
+            // Check for Ctrl+Shift+I (Windows/Linux) or Cmd+Option+I (macOS)
+            if ((e.ctrlKey && e.shiftKey && e.key === 'i') || (e.metaKey && e.altKey && e.key === 'i')) {
+                e.preventDefault();
+                showWarning();
+            }
+
             // Check for Ctrl+Shift+J (Windows/Linux) or Cmd+Option+J (macOS)
             if ((e.ctrlKey && e.shiftKey && e.key === 'J') || (e.metaKey && e.altKey && e.key === 'J')) {
+                e.preventDefault();
+                showWarning();
+            }
+
+            // Check for Ctrl+Shift+J (Windows/Linux) or Cmd+Option+J (macOS)
+            if ((e.ctrlKey && e.shiftKey && e.key === 'j') || (e.metaKey && e.altKey && e.key === 'j')) {
                 e.preventDefault();
                 showWarning();
             }
@@ -59,15 +71,32 @@
                 e.preventDefault();
                 showWarning();
             }
+                
+            // Check for Ctrl+Shift+C (Windows/Linux) or Cmd+Option+C (macOS)
+            if ((e.ctrlKey && e.shiftKey && e.key === 'c') || (e.metaKey && e.altKey && e.key === 'c')) {
+                e.preventDefault();
+                showWarning();
+            }
 
             // Check for Ctrl+Shift+K (Firefox DevTools)
             if (e.ctrlKey && e.shiftKey && e.key === 'K') {
                 e.preventDefault();
                 showWarning();
             }
+                
+            // Check for Ctrl+Shift+K (Firefox DevTools)
+            if (e.ctrlKey && e.shiftKey && e.key === 'k') {
+                e.preventDefault();
+                showWarning();
+            }
 
             // Check for Ctrl+U (View Source) - though not strictly dev tools, often used for inspection
             if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+                showWarning();
+            }
+
+            if (e.ctrlKey && e.key === 'U') {
                 e.preventDefault();
                 showWarning();
             }
